@@ -1,8 +1,9 @@
 // Quiz data storage
 let quizData = {
-    role: '',
+    ageRange: '',
     dependents: '',
     income: '',
+    insuranceType: '',
     health: '',
     firstName: '',
     lastName: '',
@@ -13,7 +14,7 @@ let quizData = {
 };
 
 let currentPage = 1;
-const totalPages = 7;
+const totalPages = 8;
 
 // Initialize the quiz
 document.addEventListener('DOMContentLoaded', function() {
@@ -96,10 +97,23 @@ function selectOption(field, value) {
     // Add selected class to clicked option
     event.currentTarget.classList.add('selected');
     
-    // Enable continue button
-    const continueButton = document.getElementById(`btn-next-${currentPage}`);
-    if (continueButton) {
-        continueButton.disabled = false;
+    // Auto-advance to next page after a short delay (except for contact form page)
+    if (currentPage < 7) { // Don't auto-advance from contact form page
+        setTimeout(() => {
+            // Direct navigation without validation since we know data is set
+            if (currentPage < totalPages) {
+                hidePage(currentPage);
+                currentPage++;
+                showPage(currentPage);
+                updateProgressBar();
+            }
+        }, 300); // 300ms delay for visual feedback
+    } else {
+        // Enable continue button for contact form page
+        const continueButton = document.getElementById(`btn-next-${currentPage}`);
+        if (continueButton) {
+            continueButton.disabled = false;
+        }
     }
 }
 
@@ -107,12 +121,14 @@ function selectOption(field, value) {
 function validateCurrentPage() {
     switch(currentPage) {
         case 2:
-            return quizData.role !== '';
+            return quizData.ageRange !== '';
         case 3:
             return quizData.dependents !== '';
         case 4:
             return quizData.income !== '';
         case 5:
+            return quizData.insuranceType !== '';
+        case 6:
             return quizData.health !== '';
         default:
             return true;
@@ -165,9 +181,10 @@ function submitForm() {
     quizData.phone = document.getElementById('phone').value.trim();
     
     // Update hidden fields with quiz data
-    document.getElementById('militaryBranch').value = quizData.role;
+    document.getElementById('ageRange').value = quizData.ageRange;
     document.getElementById('dependents').value = quizData.dependents;
     document.getElementById('income').value = quizData.income;
+    document.getElementById('insuranceType').value = quizData.insuranceType;
     document.getElementById('health').value = quizData.health;
     
     // Show loading state
@@ -222,7 +239,7 @@ function trackConversion() {
     if (typeof gtag !== 'undefined') {
         gtag('event', 'quiz_completion', {
             'event_category': 'lead_generation',
-            'event_label': 'first_responder_insurance',
+            'event_label': 'life_insurance_quiz',
             'value': 1
         });
     }
@@ -230,7 +247,7 @@ function trackConversion() {
     // Facebook Pixel event (replace with your pixel code)
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
-            content_name: 'First Responder Insurance Quiz',
+            content_name: 'Life Insurance Quiz',
             content_category: 'Insurance'
         });
     }

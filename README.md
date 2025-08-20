@@ -1,17 +1,18 @@
-# First Responder Life Insurance Quiz Funnel
+# Life Insurance Quiz Funnel
 
-A modern, mobile-friendly 7-page quiz funnel designed to generate leads for life insurance products targeted at first responders (firefighters, EMTs, police officers).
+A modern, mobile-friendly 8-page quiz funnel designed to generate leads for life insurance products targeted at general consumers and families.
 
 ## 🎯 Features
 
 ### Quiz Flow
-1. **Welcome/Hook Page** - Compelling headline and benefits for first responders
-2. **Role Identification** - Firefighter, EMT/Paramedic, Police Officer, Other
+1. **Welcome/Hook Page** - Compelling headline and benefits for families
+2. **Age Range** - 18-30, 31-45, 46-60, 60+ (Young Professional, Established Career, Mid-Career, Retirement Planning)
 3. **Family Status** - Dependents (Yes/No)
 4. **Income/Protection Needs** - Income range selection
-5. **Health Status** - General health assessment
-6. **Contact Capture** - Name, email, phone collection
-7. **Thank You Page** - Next steps and bonus offer
+5. **Insurance Type Selection** - Term Life, Whole Life, IUL, Final Expenses
+6. **Health Status** - General health assessment
+7. **Contact Capture** - Name, email, phone collection
+8. **Thank You Page** - Next steps and bonus offer
 
 ### Key Features
 - ✅ **Mobile-First Design** - Optimized for all devices
@@ -22,6 +23,8 @@ A modern, mobile-friendly 7-page quiz funnel designed to generate leads for life
 - ✅ **Modern UI/UX** - Beautiful gradients and animations
 - ✅ **Accessibility** - Keyboard navigation and screen reader support
 - ✅ **Performance Optimized** - Fast loading and smooth interactions
+- ✅ **Auto-Advance** - Automatic progression through quiz pages
+- ✅ **Trust Elements** - BBB badges, licensed agent info, insurance company logos
 
 ## 🚀 Quick Start
 
@@ -33,7 +36,13 @@ A modern, mobile-friendly 7-page quiz funnel designed to generate leads for life
    - script.js
    ```
 
-2. **Open in Browser**
+2. **Add Business Card Image**
+   ```bash
+   # Add the business card image to the project:
+   - connor-morton-card.jpg (Connor Morton's business card image)
+   ```
+
+3. **Open in Browser**
    ```bash
    # Simply open index.html in any modern web browser
    # Or serve locally:
@@ -41,7 +50,7 @@ A modern, mobile-friendly 7-page quiz funnel designed to generate leads for life
    # Then visit: http://localhost:8000
    ```
 
-3. **Customize for Your Needs**
+4. **Customize for Your Needs**
    - Update contact information
    - Modify questions and options
    - Add your branding colors
@@ -54,6 +63,7 @@ The quiz is fully optimized for mobile devices:
 - Responsive design that adapts to screen size
 - Optimized typography for readability
 - Smooth animations and transitions
+- Auto-advance functionality for faster completion
 
 ## 🎨 Customization
 
@@ -61,10 +71,10 @@ The quiz is fully optimized for mobile devices:
 Update the color scheme in `styles.css`:
 ```css
 /* Primary brand color */
---primary-color: #4CAF50;
+--primary-color: #2563eb;
 
 /* Gradient backgrounds */
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+background: linear-gradient(135deg, #1e40af 0%, #3b82f6 25%, #60a5fa 50%, #93c5fd 75%, #dbeafe 100%);
 ```
 
 ### Questions & Options
@@ -73,6 +83,14 @@ Modify the quiz content in `index.html`:
 - Change question options
 - Add or remove questions
 - Customize thank you page content
+
+### Trust Elements
+The funnel includes trust-building elements:
+- BBB Accredited badge
+- Licensed Agent verification
+- Top Rated badge
+- Insurance company partner logos
+- Agent contact information with NPN
 
 ### Form Integration
 Update the form submission in `script.js`:
@@ -96,7 +114,7 @@ Add your GA tracking code to track conversions:
 // In script.js - trackConversion function
 gtag('event', 'quiz_completion', {
     'event_category': 'lead_generation',
-    'event_label': 'first_responder_insurance',
+    'event_label': 'life_insurance_quiz',
     'value': 1
 });
 ```
@@ -105,7 +123,7 @@ gtag('event', 'quiz_completion', {
 Track leads for retargeting:
 ```javascript
 fbq('track', 'Lead', {
-    content_name: 'First Responder Insurance Quiz',
+    content_name: 'Life Insurance Quiz',
     content_category: 'Insurance'
 });
 ```
@@ -116,9 +134,10 @@ fbq('track', 'Lead', {
 The quiz collects and stores:
 ```javascript
 {
-    role: 'firefighter|emt|police|other',
+    ageRange: '18-30|31-45|46-60|60+',
     dependents: 'yes|no',
     income: 'under-50k|50k-75k|75k-100k|100k-150k|over-150k',
+    insuranceType: 'term|whole|iul|final',
     health: 'excellent|good|fair',
     firstName: 'string',
     lastName: 'string',
@@ -173,9 +192,10 @@ function submitToHubSpot(data) {
                 lastname: data.lastName,
                 phone: data.phone,
                 // Custom properties for quiz data
-                role: data.role,
+                age_range: data.ageRange,
                 dependents: data.dependents,
                 income_range: data.income,
+                insurance_type: data.insuranceType,
                 health_status: data.health
             }
         })
@@ -188,8 +208,8 @@ Implement A/B testing for different headlines or questions:
 ```javascript
 // Simple A/B test for headlines
 const headlines = {
-    A: "Protect Your Family Like You Protect Others",
-    B: "Life Insurance Built for First Responders"
+    A: "Protect Your Family's Future",
+    B: "Life Insurance Built for Families"
 };
 const selectedHeadline = Math.random() < 0.5 ? headlines.A : headlines.B;
 ```
@@ -204,9 +224,11 @@ const selectedHeadline = Math.random() < 0.5 ? headlines.A : headlines.B;
 - ✅ Social proof elements (trust badges)
 - ✅ Urgency and scarcity (limited time offers)
 - ✅ Easy form completion (minimal friction)
+- ✅ Auto-advance functionality (faster completion)
+- ✅ Trust elements (BBB, licensed agent, company logos)
 
 ### Recommended Improvements
-1. **Add testimonials** from other first responders
+1. **Add testimonials** from satisfied customers
 2. **Include trust badges** (BBB, insurance ratings)
 3. **Add urgency elements** (limited time offers)
 4. **Implement retargeting** for non-completers
@@ -245,6 +267,7 @@ Deploy to any static hosting service:
 - [ ] Configure domain and DNS
 - [ ] Set up email notifications
 - [ ] Test form submission
+- [ ] Add business card image (connor-morton-card.jpg)
 
 ## 📞 Support
 
@@ -259,6 +282,6 @@ This project is provided as-is for educational and commercial use. Customize fre
 
 ---
 
-**Built with ❤️ for First Responders**
+**Built with ❤️ for Families**
 
-*Thank you for protecting our communities. This tool helps protect your families.* 
+*Protecting your family's future with the right life insurance coverage.* 
