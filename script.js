@@ -350,4 +350,40 @@ const optimizedScroll = debounce(function() {
     // Handle scroll events if needed
 }, 16);
 
-window.addEventListener('scroll', optimizedScroll, {passive: true}); 
+window.addEventListener('scroll', optimizedScroll, {passive: true});
+
+// Privacy Policy Modal Functions
+function showPrivacyPolicy() {
+    const modal = document.getElementById('privacyModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function hidePrivacyPolicy() {
+    const modal = document.getElementById('privacyModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('privacyModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hidePrivacyPolicy();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            hidePrivacyPolicy();
+        }
+    });
+}); 
