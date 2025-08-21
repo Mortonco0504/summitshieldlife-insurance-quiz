@@ -290,25 +290,30 @@ body::before {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
-    color: #d4af37;
-    padding: 8px 16px;
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
+    color: #000000;
+    padding: 10px 18px;
     border-radius: 25px;
     font-size: 12px;
     font-weight: 700;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+    border: 2px solid #000000;
+    box-shadow: 
+        0 4px 15px rgba(212, 175, 55, 0.3),
+        0 0 0 1px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .trust-badge:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 215, 0, 0.15));
+    box-shadow: 
+        0 8px 25px rgba(212, 175, 55, 0.4),
+        0 0 0 2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #b8860b, #d4af37, #ffd700);
 }
 
 .trust-badge i {
     font-size: 10px;
+    color: #000000;
 }
 
 /* Agent Information */
@@ -1249,8 +1254,10 @@ body::before {
     }
     
     .trust-badge {
-        padding: 5px 10px;
+        padding: 6px 12px;
         font-size: 10px;
+        color: #000000;
+        border: 2px solid #000000;
     }
     
     .agent-card {
