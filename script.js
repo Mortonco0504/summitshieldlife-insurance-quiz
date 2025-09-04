@@ -68,19 +68,6 @@ function nextPage() {
 
 
 
-function nextPageOriginal() {
-    // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentPage < totalPages) {
-        // Validate current page before proceeding
-        if (validateCurrentPage()) {
-            hidePage(currentPage);
-            currentPage++;
-            showPage(currentPage);
-            updateProgressBar();
-        }
-    }
-}
 
 function previousPage() {
     // Scroll to top when navigating to previous page
@@ -389,7 +376,6 @@ function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
@@ -558,7 +544,6 @@ function showCallModal() {
     const modal = document.getElementById('callConnorModal');
     if (modal) {
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
@@ -566,7 +551,6 @@ function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
     }
 }
 
@@ -618,17 +602,19 @@ function continueQuiz() {
     // Proceed to next page
     proceedToNextPage();
 }
-// Close modal when clicking outside of it
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('callConnorModal');
-    if (event.target === modal) {
-        closeCallModal();
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
     }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeCallModal();
-    }
-});
+}
