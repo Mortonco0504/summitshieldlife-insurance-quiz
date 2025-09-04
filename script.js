@@ -45,14 +45,8 @@ function setupEventListeners() {
 // Navigation functions
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
-    // Show call modal when on page 1 (only once)
-    if (currentPage === 1 && !modalShown) {
-        modalShown = true;
-        showCallModal();
-        return; // Don't proceed with navigation yet
-    }
     
-    // Normal page navigation for other pages or if modal already shown
+    // Normal page navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
@@ -62,10 +56,17 @@ function nextPage() {
             console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            
+            // Show call modal when reaching page 2 (only once)
+            if (currentPage === 2 && !modalShown) {
+                modalShown = true;
+                setTimeout(() => {
+                    showCallModal();
+                }, 500); // Small delay to let page 2 load
+            }
         }
     }
 }
-
 
 
 
