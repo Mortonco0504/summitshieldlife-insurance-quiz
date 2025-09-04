@@ -57,12 +57,18 @@ function nextPage() {
     // Normal page navigation for other pages or if modal already shown
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
             
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
         }
     }
 }function nextPageOld3() {
@@ -70,8 +76,10 @@ function nextPage() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
             // Show call modal when on page 1 (before going to page 2)
             if (currentPage === 1) {
                 console.log("Page 1 - showing modal before going to page 2");
@@ -80,11 +88,15 @@ function nextPage() {
                     showCallModal();
                 }, 500);
             }
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
             
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
         }
     }
 }
@@ -94,13 +106,19 @@ function nextPageOld2() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
             
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
             
             // Show call modal when reaching page 2
             if (currentPage === 2) {
@@ -118,12 +136,18 @@ function nextPageOld() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
             
             // Show call modal when reaching page 2
             if (currentPage === 2) {
@@ -139,12 +163,18 @@ function nextPageOriginal() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
         }
     }
 }
@@ -207,10 +237,15 @@ function selectOption(field, value) {
                 scrollToTopMobile();
             // Direct navigation without validation since we know data is set
             if (currentPage < totalPages) {
-                hidePage(currentPage);
+        console.log("Current page is less than total pages, proceeding...");
+                console.log("Hiding page:", currentPage);
+            hidePage(currentPage);
                 currentPage++;
-                showPage(currentPage);
+            console.log("Incremented currentPage to:", currentPage);
+                console.log("Showing page:", currentPage);
+            showPage(currentPage);
                 updateProgressBar();
+            console.log("Progress bar updated");
             }
         }, 300); // 300ms delay for visual feedback
     } else {
@@ -224,8 +259,10 @@ function selectOption(field, value) {
 
 // Validation functions
 function validateCurrentPage() {
+    console.log("validateCurrentPage called for page:", currentPage);
     switch(currentPage) {
         case 2:
+            console.log("Validating page 2, ageRange:", quizData.ageRange);
             return quizData.ageRange !== '';
         case 3:
             return quizData.dependents !== '';
@@ -729,17 +766,26 @@ document.addEventListener('keydown', function(event) {
 
 // Function to proceed to next page after modal
 function proceedToNextPage() {
+    console.log("proceedToNextPage function called");
+    console.log("Current page:", currentPage);
+    console.log("Total pages:", totalPages);
     console.log("Proceeding to next page from modal");
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
+        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
+            console.log("Validation passed, hiding current page and showing next page");
+            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
+            console.log("Incremented currentPage to:", currentPage);
             
+            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            console.log("Progress bar updated");
         }
     }
 }
