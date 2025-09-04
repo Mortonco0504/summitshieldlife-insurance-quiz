@@ -44,10 +44,12 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
+    console.log("nextPage function called, currentPage:", currentPage, "modalShown:", modalShown);
     
     
     // Show call modal when on page 1 (only once)
-    if (currentPage === 1 && !modalShown) {
+    if (currentPage === 1     if (currentPage === 1 && !modalShown) {    if (currentPage === 1 && !modalShown) { !modalShown) {
+        console.log("Showing modal on page 1");
         
         modalShown = true;
         showCallModal();
@@ -498,6 +500,7 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
+        console.log("Modal element found, setting display to block");
         
         modal.style.display = 'block';
         modal.style.zIndex = '99999';
@@ -508,6 +511,7 @@ function showPrivacyPolicy() {
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
+        console.log("Modal element found, setting display to block");
         modal.style.display = 'none';
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -517,6 +521,7 @@ function hidePrivacyPolicy() {
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
+        console.log("Modal element found, setting display to block");
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 hidePrivacyPolicy();
@@ -677,10 +682,12 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
+    console.log("showCallModal function called");
     
     const modal = document.getElementById('callConnorModal');
     
     if (modal) {
+        console.log("Modal element found, setting display to block");
         
         modal.style.display = 'block';
         modal.style.zIndex = '99999';
@@ -692,6 +699,7 @@ function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
     
     if (modal) {
+        console.log("Modal element found, setting display to block");
         modal.style.display = 'none';
         // Scrolling already enabled
     }
