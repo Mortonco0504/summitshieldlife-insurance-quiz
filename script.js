@@ -46,6 +46,11 @@ function setupEventListeners() {
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
     
+    // Close modal if it's open when navigating away from page 2
+    if (currentPage === 2) {
+        closeCallModal();
+    }
+    
     // Normal page navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -71,6 +76,11 @@ function nextPage() {
 
 
 function previousPage() {
+    // Close modal if it's open when navigating away from page 2
+    if (currentPage === 2) {
+        closeCallModal();
+    }
+    
     // Scroll to top when navigating to previous page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage > 1) {
@@ -606,6 +616,10 @@ function continueQuiz() {
 // Function to proceed to next page after modal
 function proceedToNextPage() {
     console.log("Proceeding to next page from modal");
+    
+    // Close modal when proceeding to next page
+    closeCallModal();
+    
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
