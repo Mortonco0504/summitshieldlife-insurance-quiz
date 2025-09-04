@@ -67,12 +67,6 @@ function nextPage() {
             showPage(currentPage);
             updateProgressBar();
             
-            // Show call modal when reaching page 2 (only once)
-            if (currentPage === 2 && !modalShown) {
-                modalShown = true;
-                setTimeout(() => {
-                    showCallModal();
-                }, 500); // Small delay to let page 2 load
             }
         }
     }
