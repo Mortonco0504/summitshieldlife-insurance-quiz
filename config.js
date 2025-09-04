@@ -71,7 +71,7 @@ const QUIZ_CONFIG = {
             'Whole Life, Term Life, Mortgage Protection and Indexed Universal Life (IUL)',
             'No medical exam required'
         ],
-        cta: 'See How Much Coverage You Need',
+        cta: 'Get Instant Quote',
         disclaimer: 'Takes less than 2 minutes • No commitment required'
     },
 
