@@ -2092,8 +2092,8 @@ body::before {
     z-index: 10 !important;
     
     /* Make it more visible for debugging */
-    border: 5px solid red !important;
-    background-color: yellow !important;
+    border: 3px solid #d4af37 !important;
+    
     
     /* Ensure the image loads */
     object-fit: cover !important;
@@ -2111,8 +2111,8 @@ body::before {
 
 /* Debug the agent card */
 .agent-card {
-    border: 3px solid blue !important;
-    background-color: lightblue !important;
+    
+    
 }
 
 /* Ensure the image file path is correct */
