@@ -2884,3 +2884,65 @@ body {
     text-align: left !important;
     flex: 1 !important;
 }
+
+/* Ensure all benefits are stacked vertically with aligned checkmarks */
+.benefits {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+.benefit-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin-bottom: 18px !important;
+    font-size: 1.05rem !important;
+    color: #374151 !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.08) !important;
+    transition: all 0.3s ease !important;
+    text-align: left !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 500px !important;
+}
+
+.benefit-item:last-child {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+.benefit-item:hover {
+    transform: translateX(5px) !important;
+    background: rgba(37, 99, 235, 0.05) !important;
+    border-radius: 12px !important;
+    padding: 15px 18px !important;
+    margin: 0 -18px 18px -18px !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1) !important;
+}
+
+.benefit-item i {
+    color: #d4af37 !important;
+    font-size: 1.1rem !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1)) !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2) !important;
+}
+
+.benefit-item span {
+    line-height: 1.5 !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    flex: 1 !important;
+}
