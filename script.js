@@ -689,6 +689,8 @@ function bookAppointment() {
     // Show Calendly popup on current page
     showCalendlyPopup();
 }function continueQuiz() {
+    console.log("continueQuiz function called");
+    alert("Continue Quiz button clicked!");
     // Track the continue action
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Continue');
