@@ -44,12 +44,12 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
-    console.log("nextPage function called, currentPage:", currentPage, "modalShown:", modalShown);
+    // nextPage function called
     
     
     // Show call modal when on page 1 (only once)
     if (currentPage === 1 && !modalShown) {
-        console.log("Showing modal on page 1");
+        // Showing modal on page 1
         
         modalShown = true;
         showCallModal();
@@ -59,18 +59,12 @@ function nextPage() {
     // Normal page navigation for other pages or if modal already shown
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
             
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
         }
     }
 }function nextPageOld3() {
@@ -78,27 +72,19 @@ function nextPage() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
             // Show call modal when on page 1 (before going to page 2)
             if (currentPage === 1) {
-                console.log("Page 1 - showing modal before going to page 2");
                 setTimeout(() => {
-                    console.log("Executing showCallModal from page 1");
                     showCallModal();
                 }, 500);
             }
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
             
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
         }
     }
 }
@@ -108,25 +94,17 @@ function nextPageOld2() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
             
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
             
             // Show call modal when reaching page 2
             if (currentPage === 2) {
-                console.log("Page 2 reached, showing modal");
                 setTimeout(() => {
-                    console.log("Executing showCallModal");
                     showCallModal();
                 }, 1000);
             }
@@ -138,18 +116,12 @@ function nextPageOld() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
             
             // Show call modal when reaching page 2
             if (currentPage === 2) {
@@ -165,18 +137,12 @@ function nextPageOriginal() {
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
         }
     }
 }
@@ -239,15 +205,10 @@ function selectOption(field, value) {
                 scrollToTopMobile();
             // Direct navigation without validation since we know data is set
             if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
-                console.log("Hiding page:", currentPage);
             hidePage(currentPage);
                 currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
-                console.log("Showing page:", currentPage);
             showPage(currentPage);
                 updateProgressBar();
-            console.log("Progress bar updated");
             }
         }, 300); // 300ms delay for visual feedback
     } else {
@@ -261,10 +222,8 @@ function selectOption(field, value) {
 
 // Validation functions
 function validateCurrentPage() {
-    console.log("validateCurrentPage called for page:", currentPage);
     switch(currentPage) {
         case 2:
-            console.log("Validating page 2, ageRange:", quizData.ageRange);
             return quizData.ageRange !== '';
         case 3:
             return quizData.dependents !== '';
@@ -350,13 +309,10 @@ function submitForm() {
     })
     .then(response => {
         if (response.ok) {
-            console.log('Form submitted successfully');
         } else {
-            console.log('Form submission failed');
         }
     })
     .catch(error => {
-        console.log('Error submitting form:', error);
     })
     .finally(() => {
         // Store data locally
@@ -396,7 +352,6 @@ function trackConversion() {
         });
     }
     
-    console.log('Quiz completed:', quizData);
 }
 
 // Track embedded calendar view
@@ -500,7 +455,7 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        console.log("Modal element found, setting display to block");
+        // Modal element found
         
         modal.style.display = 'block';
         modal.style.zIndex = '99999';
@@ -511,7 +466,7 @@ function showPrivacyPolicy() {
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        console.log("Modal element found, setting display to block");
+        // Modal element found
         modal.style.display = 'none';
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -521,7 +476,7 @@ function hidePrivacyPolicy() {
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        console.log("Modal element found, setting display to block");
+        // Modal element found
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 hidePrivacyPolicy();
@@ -651,7 +606,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ensure click events work on mobile
         card.addEventListener('click', function(e) {
             // Let the onclick handler in HTML work normally
-            console.log('Option card clicked:', this);
         });
     });
     
@@ -675,19 +629,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Debug function to check if touch events are working
 function debugTouchEvents() {
-    console.log('Touch device detected:', isTouchDevice());
-    console.log('Max touch points:', navigator.maxTouchPoints);
-    console.log('Touch start support:', 'ontouchstart' in window);
 }
 
 // Call Connor Modal Functions
 function showCallModal() {
-    console.log("showCallModal function called");
+    // Show the modal
     
     const modal = document.getElementById('callConnorModal');
     
     if (modal) {
-        console.log("Modal element found, setting display to block");
+        // Modal element found
         
         modal.style.display = 'block';
         modal.style.zIndex = '99999';
@@ -699,7 +650,7 @@ function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
     
     if (modal) {
-        console.log("Modal element found, setting display to block");
+        // Modal element found
         modal.style.display = 'none';
         // Scrolling already enabled
     }
@@ -734,8 +685,8 @@ function bookAppointment() {
     // Show Calendly popup on current page
     showCalendlyPopup();
 }function continueQuiz() {
-    console.log("continueQuiz function called");
-    alert("Continue Quiz button clicked!");
+    // continueQuiz function called
+    // Continue Quiz button clicked
     // Track the continue action
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Continue');
@@ -774,26 +725,19 @@ document.addEventListener('keydown', function(event) {
 
 // Function to proceed to next page after modal
 function proceedToNextPage() {
-    console.log("proceedToNextPage function called");
-    console.log("Current page:", currentPage);
-    console.log("Total pages:", totalPages);
-    console.log("Proceeding to next page from modal");
+    // proceedToNextPage function called
+    // Current page
+    // Total pages
     // Scroll to top when navigating to next page
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        console.log("Current page is less than total pages, proceeding...");
         // Validate current page before proceeding
         if (currentPage === 1 || validateCurrentPage()) {
-            console.log("Validation passed, hiding current page and showing next page");
-            console.log("Hiding page:", currentPage);
             hidePage(currentPage);
             currentPage++;
-            console.log("Incremented currentPage to:", currentPage);
             
-            console.log("Showing page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            console.log("Progress bar updated");
         }
     }
 }
@@ -801,7 +745,6 @@ function proceedToNextPage() {
 
 // Test if nextPage is being called
 function testNextPage() {
-    console.log("Testing nextPage function...");
     nextPage();
 }
 function bookAppointment() {
