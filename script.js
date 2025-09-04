@@ -342,7 +342,7 @@ function trackConversion() {
             'event_category': 'lead_generation',
             'event_label': 'life_insurance_quiz',
             'value': 1
-        // });
+        });
     }
     
     // Facebook Pixel event (replace with your pixel code)
@@ -350,7 +350,7 @@ function trackConversion() {
         fbq('track', 'Lead', {
             content_name: 'Life Insurance Quiz',
             content_category: 'Insurance'
-        // });
+        });
     }
     
     console.log('Quiz completed:', quizData);
@@ -364,14 +364,14 @@ function trackCalendarView() {
             'event_category': 'lead_generation',
             'event_label': 'embedded_calendar',
             'value': 1
-        // });
+        });
     }
     
     if (typeof fbq !== 'undefined') {
         fbq('track', 'ViewContent', {
             content_name: 'Embedded Calendar',
             content_category: 'Insurance Consultation'
-        // });
+        });
     }
 }
 
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {
             formatPhoneNumber(this);
-        // });
+        });
     }
     
     // Track embedded calendar when it loads
@@ -404,16 +404,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_category': 'lead_generation',
                     'event_label': 'calendly_booking',
                     'value': 1
-                // });
+                });
             }
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
                     content_name: 'Appointment Booked',
                     content_category: 'Insurance Consultation'
-                // });
+                });
             }
-        // });
+        });
     }
 });
 
@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === modal) {
                 hidePrivacyPolicy();
             }
-        // });
+        });
     }
     
     // Close modal with Escape key
@@ -508,16 +508,16 @@ if (isTouchDevice()) {
             card.addEventListener('touchstart', function() {
                 this.style.transform = 'scale(0.98)';
                 this.style.transition = 'transform 0.1s ease';
-            // });
+            });
             
             card.addEventListener('touchend', function() {
                 this.style.transform = 'scale(1)';
-            // });
+            });
             
             card.addEventListener('touchcancel', function() {
                 this.style.transform = 'scale(1)';
-            // });
-        // });
+            });
+        });
     });
 }
 
@@ -576,7 +576,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isMobileDevice()) {
                 validateContactFormMobile();
             }
-        // });
+        });
     });
 });
 
@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function(e) {
             // Let the onclick handler in HTML work normally
             console.log('Option card clicked:', this);
-        // });
+        });
     });
     
     // Add touch handling for buttons without preventing clicks
