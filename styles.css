@@ -345,8 +345,8 @@ body::before {
         height: auto;
         display: block;
         margin: 0 auto;
-    width: 60px;
-    height: 60px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #2563eb;
@@ -1340,7 +1340,7 @@ body::before {
     
     .option-simple {
         padding: 12px;
-        min-height: 60px;
+        min-height: 150px;
     }
     
     .contact-form {
@@ -1593,7 +1593,7 @@ body::before {
 @media (max-width: 768px) {
     /* Improve touch targets */
     .option-card, .option-simple {
-        min-height: 60px;
+        min-height: 150px;
         padding: 20px 15px;
         margin-bottom: 12px;
     }
@@ -1888,7 +1888,7 @@ body::before {
     
     /* Ensure proper touch target size */
     .option-card, .option-simple {
-        min-height: 60px;
+        min-height: 150px;
         min-width: 100%;
     }
     
@@ -1900,4 +1900,36 @@ body::before {
     .container {
         overflow: visible;
     }
+}
+
+/* Debug and ensure agent image is visible */
+.agent-image {
+    /* Ensure image is always visible */
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    
+    /* Make sure it's not hidden by any parent elements */
+    position: relative;
+    z-index: 10;
+    
+    /* Ensure proper sizing on desktop */
+    min-width: 150px;
+    min-height: 150px;
+}
+
+/* Ensure agent photo container doesn't hide the image */
+.agent-photo {
+    display: block !important;
+    visibility: visible !important;
+    overflow: visible !important;
+}
+
+/* Debug styles - remove after testing */
+.agent-card {
+    border: 2px solid red; /* Temporary debug border */
+}
+
+.agent-photo {
+    border: 2px solid blue; /* Temporary debug border */
 }
