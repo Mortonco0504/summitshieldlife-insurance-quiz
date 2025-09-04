@@ -48,7 +48,7 @@ function nextPage() {
     
     
     // Show call modal when on page 1 (only once)
-    if (currentPage === 1     if (currentPage === 1 && !modalShown) {    if (currentPage === 1 && !modalShown) { !modalShown) {
+    if (currentPage === 1 && !modalShown) {
         console.log("Showing modal on page 1");
         
         modalShown = true;
