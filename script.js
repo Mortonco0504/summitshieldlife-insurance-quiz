@@ -753,22 +753,6 @@ function proceedToNextPage() {
     }
 }
 
-// Additional debugging functions
-function testModalDirect() {
-    console.log("Testing modal directly...");
-    const modal = document.getElementById('callConnorModal');
-    console.log("Modal element:", modal);
-    if (modal) {
-        console.log("Modal found, showing...");
-        modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        modal.style.backgroundColor = 'rgba(255, 0, 0, 0.8)'; // Red background for visibility
-        document.body.style.overflow = 'hidden';
-        console.log("Modal should be visible now");
-    } else {
-        console.log("Modal element not found!");
-    }
-}
 
 // Test if nextPage is being called
 function testNextPage() {
