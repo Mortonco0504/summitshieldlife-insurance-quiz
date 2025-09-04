@@ -632,12 +632,20 @@ function bookAppointment() {
         fbq('track', 'Schedule');
     }
     
-    // Close call modal first
+    // Close modal
     closeCallModal();
     
-    // Show Calendly popup
-    showCalendlyPopup();
+    // Proceed to next page
+    
+    // Open calendar booking (you can replace this with your actual booking system)
+    // For now, we'll open a simple mailto link
+    const subject = 'Life Insurance Consultation Appointment';
+    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
+    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
 }
+
 function continueQuiz() {
     // Track the continue action
     if (typeof fbq !== 'undefined') {
@@ -670,47 +678,3 @@ function proceedToNextPage() {
         }
     }
 }
-// Calendly popup functions
-function showCalendlyPopup() {
-    const modal = document.getElementById('calendlyModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.style.zIndex = '99999';
-        console.log('Calendly modal shown.');
-        
-        // Initialize Calendly widget if available
-        if (typeof Calendly !== 'undefined') {
-            Calendly.initInlineWidget({
-                url: 'https://calendly.com/connormorton-ffl/life-insurance',
-                parentElement: modal.querySelector('.calendly-inline-widget')
-            });
-        }
-    } else {
-        console.error('Error: calendlyModal element not found.');
-        // Fallback to opening Calendly in new tab
-        window.open('https://calendly.com/connormorton-ffl/life-insurance', '_blank');
-    }
-}
-
-function closeCalendlyPopup() {
-    const modal = document.getElementById('calendlyModal');
-    if (modal) {
-        modal.style.display = 'none';
-        console.log('Calendly modal closed.');
-    }
-}
-
-// Close Calendly modal when clicking outside
-document.addEventListener('click', function(e) {
-    const calendlyModal = document.getElementById('calendlyModal');
-    if (calendlyModal && e.target === calendlyModal) {
-        closeCalendlyPopup();
-    }
-});
-
-// Close Calendly modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeCalendlyPopup();
-    }
-});

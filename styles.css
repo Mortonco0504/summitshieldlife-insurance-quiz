@@ -3516,3 +3516,50 @@ body {
         justify-content: center;
     }
 }
+
+/* Calendly Modal Styles */
+.calendly-modal-content {
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    padding: 0;
+}
+
+.calendly-modal-body {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+}
+
+.calendly-modal-content .modal-header {
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+}
+
+.calendly-modal-content .calendly-inline-widget {
+    border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 768px) {
+    .calendly-modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .calendly-modal-body .calendly-inline-widget {
+        height: 500px !important;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendly-modal-content {
+        width: 98%;
+        margin: 10px;
+    }
+    
+    .calendly-modal-body .calendly-inline-widget {
+        height: 450px !important;
+        min-height: 450px;
+    }
+}

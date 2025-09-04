@@ -19,11 +19,6 @@ const totalPages = 8;
 
 // Initialize the quiz
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
     updateProgressBar();
     setupEventListeners();
 });
@@ -51,18 +46,6 @@ function setupEventListeners() {
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
     
-    // Show modal immediately when clicking "Get Instant Quote" on page 1 (only once)
-    if (currentPage === 1 && !modalShown) {
-        modalShown = true;
-        showCallModal();
-        return; // Don't proceed with navigation yet
-    }
-    
-    // Close modal if it's open when navigating away from page 2
-    if (currentPage === 2) {
-        closeCallModal();
-    }
-    
     // Normal page navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -73,6 +56,14 @@ function nextPage() {
             console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
+            
+            // Show call modal when reaching page 2 (only once)
+            if (currentPage === 2 && !modalShown) {
+                modalShown = true;
+                setTimeout(() => {
+                    showCallModal();
+                }, 500); // Small delay to let page 2 load
+            }
         }
     }
 }
@@ -80,11 +71,6 @@ function nextPage() {
 
 
 function previousPage() {
-    // Close modal if it's open when navigating away from page 2
-    if (currentPage === 2) {
-        closeCallModal();
-    }
-    
     // Scroll to top when navigating to previous page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage > 1) {
@@ -321,11 +307,6 @@ function formatPhoneNumber(input) {
 
 // Add phone formatting
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {
@@ -429,11 +410,6 @@ function isTouchDevice() {
 if (isTouchDevice()) {
     // Add touch feedback for option cards
     document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
         const optionCards = document.querySelectorAll('.option-card, .option-simple');
         
         optionCards.forEach(card => {
@@ -455,11 +431,6 @@ if (isTouchDevice()) {
 
 // Prevent double-tap zoom on buttons
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
     const buttons = document.querySelectorAll('button, .btn-primary');
     buttons.forEach(button => {
     });
@@ -507,11 +478,6 @@ function validateContactFormMobile() {
 
 // Enhanced mobile form validation
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
     const formInputs = document.querySelectorAll('#page6 input, #page6 select');
     formInputs.forEach(input => {
         input.addEventListener('blur', function() {
@@ -524,11 +490,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Improved mobile touch handling
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modal is hidden on page load
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
     // Add proper touch handling for option cards
     const optionCards = document.querySelectorAll('.option-card, .option-simple');
     
@@ -581,25 +542,9 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
-    console.log("showCallModal called");
     const modal = document.getElementById('callConnorModal');
     if (modal) {
-        console.log("Modal found, setting display to flex");
         modal.style.display = 'flex';
-        modal.style.zIndex = '99999';
-    } else {
-        console.log("Modal not found!");
-    }
-}
-
-function closeCallModal() {
-    console.log("closeCallModal called");
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        console.log("Modal found, setting display to none");
-        modal.style.display = 'none';
-    } else {
-        console.log("Modal not found!");
     }
 }
 
@@ -632,12 +577,20 @@ function bookAppointment() {
         fbq('track', 'Schedule');
     }
     
-    // Close call modal first
+    // Close modal
     closeCallModal();
     
-    // Show Calendly popup
-    showCalendlyPopup();
+    // Proceed to next page
+    
+    // Open calendar booking (you can replace this with your actual booking system)
+    // For now, we'll open a simple mailto link
+    const subject = 'Life Insurance Consultation Appointment';
+    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
+    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
 }
+
 function continueQuiz() {
     // Track the continue action
     if (typeof fbq !== 'undefined') {
@@ -670,47 +623,3 @@ function proceedToNextPage() {
         }
     }
 }
-// Calendly popup functions
-function showCalendlyPopup() {
-    const modal = document.getElementById('calendlyModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.style.zIndex = '99999';
-        console.log('Calendly modal shown.');
-        
-        // Initialize Calendly widget if available
-        if (typeof Calendly !== 'undefined') {
-            Calendly.initInlineWidget({
-                url: 'https://calendly.com/connormorton-ffl/life-insurance',
-                parentElement: modal.querySelector('.calendly-inline-widget')
-            });
-        }
-    } else {
-        console.error('Error: calendlyModal element not found.');
-        // Fallback to opening Calendly in new tab
-        window.open('https://calendly.com/connormorton-ffl/life-insurance', '_blank');
-    }
-}
-
-function closeCalendlyPopup() {
-    const modal = document.getElementById('calendlyModal');
-    if (modal) {
-        modal.style.display = 'none';
-        console.log('Calendly modal closed.');
-    }
-}
-
-// Close Calendly modal when clicking outside
-document.addEventListener('click', function(e) {
-    const calendlyModal = document.getElementById('calendlyModal');
-    if (calendlyModal && e.target === calendlyModal) {
-        closeCalendlyPopup();
-    }
-});
-
-// Close Calendly modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeCalendlyPopup();
-    }
-});
