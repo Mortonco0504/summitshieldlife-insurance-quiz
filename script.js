@@ -57,7 +57,7 @@ function nextPage() {
     // Normal page navigation for other pages or if modal already shown
     scrollToTopMobile();
     if (currentPage < totalPages) {
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             
@@ -71,7 +71,7 @@ function nextPage() {
     scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             // Show call modal when on page 1 (before going to page 2)
             if (currentPage === 1) {
                 console.log("Page 1 - showing modal before going to page 2");
@@ -95,7 +95,7 @@ function nextPageOld2() {
     scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             
@@ -119,7 +119,7 @@ function nextPageOld() {
     scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -140,7 +140,7 @@ function nextPageOriginal() {
     scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -732,7 +732,7 @@ function proceedToNextPage() {
     scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             
