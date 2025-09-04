@@ -241,7 +241,10 @@ body::before {
 }
 
 .badge {
-    display: inline-flex;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
     align-items: center;
     gap: 12px;
     background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
@@ -560,7 +563,10 @@ body::before {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
     align-items: center;
     gap: 12px;
     box-shadow: 
@@ -618,7 +624,10 @@ body::before {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: inline-flex;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
     align-items: center;
     gap: 8px;
     margin-top: 15px;
@@ -2031,4 +2040,36 @@ body::before {
 .hero-section {
     position: relative !important;
     z-index: 1 !important;
+}
+
+/* Ensure Family Protection badge is positioned below logo, not beside it */
+.badge {
+    /* Force block display to appear below logo */
+    display: block !important;
+    text-align: center !important;
+    width: fit-content !important;
+    margin: 20px auto !important;
+    
+    /* Remove any inline positioning */
+    float: none !important;
+    clear: both !important;
+    
+    /* Ensure it's on its own line */
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Ensure company logo section doesn't interfere */
+.company-logo-section {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+}
+
+/* Ensure hero section layout is proper */
+.hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
