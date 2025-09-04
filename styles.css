@@ -1951,13 +1951,8 @@ body::before {
     overflow: visible !important;
 }
 
-/* Debug styles - remove after testing */
-.agent-card {
-    border: 2px solid red; /* Temporary debug border */
-}
 
 .agent-photo {
-    border: 2px solid blue; /* Temporary debug border */
 }
 
 /* Enhanced mobile trust badge styling */
