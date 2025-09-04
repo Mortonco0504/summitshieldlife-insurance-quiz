@@ -43,6 +43,8 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -55,6 +57,8 @@ function nextPage() {
 }
 
 function previousPage() {
+    // Scroll to top when navigating to previous page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage > 1) {
         hidePage(currentPage);
         currentPage--;
@@ -100,6 +104,8 @@ function selectOption(field, value) {
     // Auto-advance to next page after a short delay (except for contact form page)
     if (currentPage < 7) { // Don't auto-advance from contact form page
         setTimeout(() => {
+                // Scroll to top when auto-advancing to next page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             // Direct navigation without validation since we know data is set
             if (currentPage < totalPages) {
                 hidePage(currentPage);
