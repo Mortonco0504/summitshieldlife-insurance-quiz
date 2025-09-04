@@ -1,3 +1,7 @@
+function testButton() {
+    alert("Button is working!");
+    nextPage();
+}
 // Quiz data storage
 let quizData = {
     ageRange: '',
