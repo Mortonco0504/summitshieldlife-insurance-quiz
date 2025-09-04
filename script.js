@@ -18,7 +18,6 @@ let quizData = {
 };
 
 let currentPage = 1;
-let modalShown = false; // Track if modal has been shown
 const totalPages = 8;
 
 // Initialize the quiz
@@ -48,45 +47,48 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
-    // nextPage function called
-    
-    
-    // Show call modal when on page 1 (only once)
-    if (currentPage === 1 && !modalShown) {
-        // Showing modal on page 1
-        
-        modalShown = true;
-        showCallModal();
+    console.log("nextPage called, current page:", currentPage);
+    // Show call modal when on page 1 (before any navigation)
+    if (currentPage === 1) {
+        console.log("Page 1 - showing modal before going to page 2");
+        setTimeout(() => {
+            console.log("Executing showCallModal from page 1");
+            showCallModal();
+        }, 100);
         return; // Don't proceed with navigation yet
     }
-    
-    // Normal page navigation for other pages or if modal already shown
-    scrollToTopMobile();
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
-        if (currentPage === 1 || validateCurrentPage()) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
     }
-}function nextPageOld3() {
-    
+}
+
+function nextPageOld3() {
+    console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (currentPage === 1 || validateCurrentPage()) {
+        if (validateCurrentPage()) {
             // Show call modal when on page 1 (before going to page 2)
             if (currentPage === 1) {
+                console.log("Page 1 - showing modal before going to page 2");
                 setTimeout(() => {
+                    console.log("Executing showCallModal from page 1");
                     showCallModal();
                 }, 500);
             }
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
@@ -94,21 +96,23 @@ function nextPage() {
 }
 
 function nextPageOld2() {
-    
+    console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (currentPage === 1 || validateCurrentPage()) {
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
             
             // Show call modal when reaching page 2
             if (currentPage === 2) {
+                console.log("Page 2 reached, showing modal");
                 setTimeout(() => {
+                    console.log("Executing showCallModal");
                     showCallModal();
                 }, 1000);
             }
@@ -118,10 +122,10 @@ function nextPageOld2() {
 
 function nextPageOld() {
     // Scroll to top when navigating to next page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (currentPage === 1 || validateCurrentPage()) {
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -139,10 +143,10 @@ function nextPageOld() {
 
 function nextPageOriginal() {
     // Scroll to top when navigating to next page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (currentPage === 1 || validateCurrentPage()) {
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -153,7 +157,7 @@ function nextPageOriginal() {
 
 function previousPage() {
     // Scroll to top when navigating to previous page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage > 1) {
         hidePage(currentPage);
         currentPage--;
@@ -167,15 +171,9 @@ function showPage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     if (page) {
         page.classList.add('active');
-        
-        // Enhanced mobile scroll when showing new page
-        if (isMobileDevice()) {
-            setTimeout(() => {
-                scrollToTopMobile();
-            }, 50);
-        }
     }
 }
+
 function hidePage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     if (page) {
@@ -206,12 +204,12 @@ function selectOption(field, value) {
     if (currentPage < 7) { // Don't auto-advance from contact form page
         setTimeout(() => {
                 // Scroll to top when auto-advancing to next page
-                scrollToTopMobile();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             // Direct navigation without validation since we know data is set
             if (currentPage < totalPages) {
-            hidePage(currentPage);
+                hidePage(currentPage);
                 currentPage++;
-            showPage(currentPage);
+                showPage(currentPage);
                 updateProgressBar();
             }
         }, 300); // 300ms delay for visual feedback
@@ -313,10 +311,13 @@ function submitForm() {
     })
     .then(response => {
         if (response.ok) {
+            console.log('Form submitted successfully');
         } else {
+            console.log('Form submission failed');
         }
     })
     .catch(error => {
+        console.log('Error submitting form:', error);
     })
     .finally(() => {
         // Store data locally
@@ -356,6 +357,7 @@ function trackConversion() {
         });
     }
     
+    console.log('Quiz completed:', quizData);
 }
 
 // Track embedded calendar view
@@ -399,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Track embedded calendar when it loads
     if (typeof Calendly !== 'undefined') {
-        // Calendly.onEventScheduled(function(e) {
+        Calendly.onEventScheduled(function(e) {
             // Track when someone books an appointment
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'appointment_booked', {
@@ -459,18 +461,14 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        // Modal element found
-        
         modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        // Allow scrolling - removed overflow hidden
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        // Modal element found
         modal.style.display = 'none';
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -480,7 +478,6 @@ function hidePrivacyPolicy() {
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        // Modal element found
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 hidePrivacyPolicy();
@@ -610,6 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ensure click events work on mobile
         card.addEventListener('click', function(e) {
             // Let the onclick handler in HTML work normally
+            console.log('Option card clicked:', this);
         });
     });
     
@@ -633,30 +631,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Debug function to check if touch events are working
 function debugTouchEvents() {
+    console.log('Touch device detected:', isTouchDevice());
+    console.log('Max touch points:', navigator.maxTouchPoints);
+    console.log('Touch start support:', 'ontouchstart' in window);
 }
 
 // Call Connor Modal Functions
 function showCallModal() {
-    // Show the modal
-    
     const modal = document.getElementById('callConnorModal');
-    
     if (modal) {
-        // Modal element found
-        
         modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        // Allow scrolling - removed overflow hidden
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
 function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
-    
     if (modal) {
-        // Modal element found
         modal.style.display = 'none';
-        // Scrolling already enabled
+        document.body.style.overflow = 'auto'; // Restore scrolling
     }
 }
 
@@ -670,7 +663,6 @@ function callConnor() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
@@ -686,11 +678,18 @@ function bookAppointment() {
     // Close modal
     closeCallModal();
     
-    // Show Calendly popup on current page
-    showCalendlyPopup();
-}function continueQuiz() {
-    // continueQuiz function called
-    // Continue Quiz button clicked
+    // Proceed to next page
+    
+    // Open calendar booking (you can replace this with your actual booking system)
+    // For now, we'll open a simple mailto link
+    const subject = 'Life Insurance Consultation Appointment';
+    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
+    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
+}
+
+function continueQuiz() {
     // Track the continue action
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Continue');
@@ -700,18 +699,15 @@ function bookAppointment() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
 document.addEventListener('click', function(event) {
     const modal = document.getElementById('callConnorModal');
-    
     if (event.target === modal) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -721,7 +717,6 @@ document.addEventListener('keydown', function(event) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -729,17 +724,15 @@ document.addEventListener('keydown', function(event) {
 
 // Function to proceed to next page after modal
 function proceedToNextPage() {
-    // proceedToNextPage function called
-    // Current page
-    // Total pages
+    console.log("Proceeding to next page from modal");
     // Scroll to top when navigating to next page
-    scrollToTopMobile();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (currentPage === 1 || validateCurrentPage()) {
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
@@ -749,152 +742,6 @@ function proceedToNextPage() {
 
 // Test if nextPage is being called
 function testNextPage() {
+    console.log("Testing nextPage function...");
     nextPage();
-}
-function bookAppointment() {
-    // Track the appointment booking action
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Schedule');
-    }
-    
-    // Close modal
-    closeCallModal();
-    
-    // Show Calendly popup on current page
-    showCalendlyPopup();
-}
-
-function showCalendlyPopup() {
-    // Create Calendly popup overlay
-    const overlay = document.createElement('div');
-    overlay.id = 'calendly-overlay';
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        box-sizing: border-box;
-    `;
-    
-    // Create popup container
-    const popup = document.createElement('div');
-    popup.style.cssText = `
-        background: white;
-        border-radius: 12px;
-        width: 100%;
-        max-width: 900px;
-        height: 80vh;
-        max-height: 700px;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    `;
-    
-    // Create close button
-    const closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '×';
-    closeBtn.style.cssText = `
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 30px;
-        color: #666;
-        cursor: pointer;
-        z-index: 10001;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        transition: all 0.2s ease;
-    `;
-    
-    closeBtn.addEventListener('mouseenter', () => {
-        closeBtn.style.background = '#f0f0f0';
-        closeBtn.style.color = '#333';
-    });
-    
-    closeBtn.addEventListener('mouseleave', () => {
-        closeBtn.style.background = 'none';
-        closeBtn.style.color = '#666';
-    });
-    
-    closeBtn.addEventListener('click', closeCalendlyPopup);
-    
-    // Create iframe for Calendly
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://calendly.com/connormorton-ffl/life-insurance?embed=true&embed_domain=localhost&embed_type=Inline';
-    iframe.style.cssText = `
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 12px;
-    `;
-    
-    // Assemble popup
-    popup.appendChild(closeBtn);
-    popup.appendChild(iframe);
-    overlay.appendChild(popup);
-    
-    // Add to page
-    document.body.appendChild(overlay);
-    
-    // Close on overlay click
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            closeCalendlyPopup();
-        }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeCalendlyPopup();
-        }
-    });
-}
-
-function closeCalendlyPopup() {
-    const overlay = document.getElementById('calendly-overlay');
-    if (overlay) {
-        overlay.remove();
-    }
-}
-// Enhanced mobile scroll functionality
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-           window.innerWidth <= 768;
-}
-
-function scrollToTopMobile() {
-    if (isMobileDevice()) {
-        // More aggressive scroll for mobile
-        scrollToTopMobile();
-        
-        // Fallback for older mobile browsers
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 100);
-        
-        // Additional scroll for iOS Safari
-        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            setTimeout(() => {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-            }, 150);
-        }
-    } else {
-        // Standard scroll for desktop
-        scrollToTopMobile();
-    }
 }
