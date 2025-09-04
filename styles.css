@@ -1644,6 +1644,17 @@ body::before {
         padding: 15px;
     }
     
+    /* Make checkboxes smaller on mobile */
+    .checkbox-label input[type="checkbox"] {
+        transform: scale(0.9) !important;
+        margin-top: 2px;
+    }
+    
+    .checkbox-label {
+        padding: 12px;
+        gap: 12px;
+        font-size: 0.9rem;
+    }    
     /* Better agent card layout */
     .agent-card {
         flex-direction: column;
