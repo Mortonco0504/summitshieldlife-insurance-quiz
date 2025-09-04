@@ -55,7 +55,7 @@ function nextPage() {
     }
     
     // Normal page navigation for other pages or if modal already shown
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         if (validateCurrentPage()) {
             hidePage(currentPage);
@@ -68,7 +68,7 @@ function nextPage() {
 }function nextPageOld3() {
     
     // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -92,7 +92,7 @@ function nextPage() {
 function nextPageOld2() {
     
     // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -116,7 +116,7 @@ function nextPageOld2() {
 
 function nextPageOld() {
     // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -137,7 +137,7 @@ function nextPageOld() {
 
 function nextPageOriginal() {
     // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -151,7 +151,7 @@ function nextPageOriginal() {
 
 function previousPage() {
     // Scroll to top when navigating to previous page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage > 1) {
         hidePage(currentPage);
         currentPage--;
@@ -165,9 +165,15 @@ function showPage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     if (page) {
         page.classList.add('active');
+        
+        // Enhanced mobile scroll when showing new page
+        if (isMobileDevice()) {
+            setTimeout(() => {
+                scrollToTopMobile();
+            }, 50);
+        }
     }
 }
-
 function hidePage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     if (page) {
@@ -198,7 +204,7 @@ function selectOption(field, value) {
     if (currentPage < 7) { // Don't auto-advance from contact form page
         setTimeout(() => {
                 // Scroll to top when auto-advancing to next page
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                scrollToTopMobile();
             // Direct navigation without validation since we know data is set
             if (currentPage < totalPages) {
                 hidePage(currentPage);
@@ -723,7 +729,7 @@ document.addEventListener('keydown', function(event) {
 function proceedToNextPage() {
     console.log("Proceeding to next page from modal");
     // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopMobile();
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -859,5 +865,33 @@ function closeCalendlyPopup() {
     const overlay = document.getElementById('calendly-overlay');
     if (overlay) {
         overlay.remove();
+    }
+}
+// Enhanced mobile scroll functionality
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+           window.innerWidth <= 768;
+}
+
+function scrollToTopMobile() {
+    if (isMobileDevice()) {
+        // More aggressive scroll for mobile
+        scrollToTopMobile();
+        
+        // Fallback for older mobile browsers
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
+        
+        // Additional scroll for iOS Safari
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            setTimeout(() => {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }, 150);
+        }
+    } else {
+        // Standard scroll for desktop
+        scrollToTopMobile();
     }
 }
