@@ -659,7 +659,6 @@ function callConnor() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
@@ -676,7 +675,6 @@ function bookAppointment() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     
     // Open calendar booking (you can replace this with your actual booking system)
     // For now, we'll open a simple mailto link
@@ -697,7 +695,6 @@ function continueQuiz() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
@@ -707,7 +704,6 @@ document.addEventListener('click', function(event) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -717,24 +713,10 @@ document.addEventListener('keydown', function(event) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
-// Debug function to test modal
-function testModal() {
-    console.log("Testing modal...");
-    showCallModal();
-}
 
-// Add debugging to nextPage function
-function debugNextPage() {
-    console.log("nextPage called, currentPage:", currentPage);
-    if (currentPage === 2) {
-        console.log("Should show modal now");
-        showCallModal();
-    }
-}
 
 // Function to proceed to next page after modal
 function proceedToNextPage() {
