@@ -43,6 +43,31 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
+    console.log("nextPage called, current page:", currentPage);
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+            
+            // Show call modal when reaching page 2
+            if (currentPage === 2) {
+                console.log("Page 2 reached, showing modal");
+                setTimeout(() => {
+                    console.log("Executing showCallModal");
+                    showCallModal();
+                }, 1000);
+            }
+        }
+    }
+}
+
+function nextPageOld() {
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -631,3 +656,18 @@ document.addEventListener('keydown', function(event) {
         closeCallModal();
     }
 });
+
+// Debug function to test modal
+function testModal() {
+    console.log("Testing modal...");
+    showCallModal();
+}
+
+// Add debugging to nextPage function
+function debugNextPage() {
+    console.log("nextPage called, currentPage:", currentPage);
+    if (currentPage === 2) {
+        console.log("Should show modal now");
+        showCallModal();
+    }
+}
