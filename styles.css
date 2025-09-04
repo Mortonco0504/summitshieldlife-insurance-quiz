@@ -3142,12 +3142,25 @@ body {
     .modal-header, .modal-body {
         padding: 20px;
     }
-    
     .agent-availability {
         flex-direction: column;
         text-align: center;
         gap: 15px;
     }
+    
+    /* Ensure agent photo is centered above name */
+    .agent-availability .agent-photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .agent-availability .agent-info {
+        text-align: center;
+        width: 100%;
+    }    }
     
     .agent-availability .agent-photo img {
         width: 70px;
