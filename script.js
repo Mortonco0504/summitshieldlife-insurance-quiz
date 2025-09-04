@@ -44,19 +44,17 @@ function setupEventListeners() {
 // Navigation functions
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
+    
     // Show call modal when on page 1 (before any navigation)
     if (currentPage === 1) {
-        console.log("Page 1 - showing modal before going to page 2");
-        setTimeout(() => {
-            console.log("Executing showCallModal from page 1");
-            showCallModal();
-        }, 100);
+        console.log("Page 1 - showing modal immediately");
+        showCallModal();
         return; // Don't proceed with navigation yet
     }
-    // Scroll to top when navigating to next page
+    
+    // Normal page navigation for other pages
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
-        // Validate current page before proceeding
         if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
@@ -66,7 +64,6 @@ function nextPage() {
         }
     }
 }
-
 function nextPageOld3() {
     console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
@@ -457,7 +454,9 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
+        console.log("Setting modal to display block");
         modal.style.display = 'block';
+        modal.style.zIndex = '99999';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
@@ -634,15 +633,20 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
+    console.log("showCallModal called");
     const modal = document.getElementById('callConnorModal');
+    console.log("Modal element:", modal);
     if (modal) {
+        console.log("Setting modal to display block");
         modal.style.display = 'block';
+        modal.style.zIndex = '99999';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
 function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
+    console.log("Modal element:", modal);
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scrolling
@@ -700,6 +704,7 @@ function continueQuiz() {
 // Close modal when clicking outside of it
 document.addEventListener('click', function(event) {
     const modal = document.getElementById('callConnorModal');
+    console.log("Modal element:", modal);
     if (event.target === modal) {
         closeCallModal();
     
