@@ -393,3 +393,97 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 }); 
+
+// Mobile-specific optimizations
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+function isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+// Enhanced mobile touch handling
+if (isTouchDevice()) {
+    // Add touch feedback for option cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const optionCards = document.querySelectorAll('.option-card, .option-simple');
+        
+        optionCards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+                this.style.transition = 'transform 0.1s ease';
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            card.addEventListener('touchcancel', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    });
+}
+
+// Prevent double-tap zoom on buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('button, .btn-primary');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        });
+    });
+});
+
+// Optimize scroll performance for mobile
+let ticking = false;
+function updateScrollPosition() {
+    // Handle any scroll-based animations or effects here
+    ticking = false;
+}
+
+function requestScrollUpdate() {
+    if (!ticking) {
+        requestAnimationFrame(updateScrollPosition);
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+// Improve form validation for mobile
+function validateContactFormMobile() {
+    const inputs = document.querySelectorAll('#page6 input, #page6 select');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (input.type === 'email') {
+            if (!isValidEmail(input.value)) {
+                input.style.borderColor = '#e74c3c';
+                isValid = false;
+            } else {
+                input.style.borderColor = '#27ae60';
+            }
+        } else if (input.required && !input.value.trim()) {
+            input.style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+        }
+    });
+    
+    return isValid;
+}
+
+// Enhanced mobile form validation
+document.addEventListener('DOMContentLoaded', function() {
+    const formInputs = document.querySelectorAll('#page6 input, #page6 select');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (isMobileDevice()) {
+                validateContactFormMobile();
+            }
+        });
+    });
+});
