@@ -681,7 +681,7 @@ function bookAppointment() {
     closeCallModal();
     
     // Open Calendly calendar for easy booking
-    const calendlyUrl = 'https://calendly.com/connormorton/life-insurance-consultation';
+    const calendlyUrl = 'https://calendly.com/connormorton-ffl/life-insurance';
     window.open(calendlyUrl, '_blank');
 }
 function continueQuiz() {
