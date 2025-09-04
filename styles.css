@@ -6,6 +6,11 @@
 }
 
 body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #1f2937;
@@ -2421,6 +2426,197 @@ body::before {
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
+}
+
+.step-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+/* Force centering of the entire page content */
+body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+}
+
+/* Ensure main container is centered */
+.main-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+/* Center quiz container */
+.quiz-container {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Center page content */
+.page-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 35px 30px !important;
+}
+
+/* Center hero section */
+.hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+/* Center all page elements */
+.page-header {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 30px auto !important;
+    max-width: 600px !important;
+}
+
+.page-header h2 {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+.page-header .question-subtitle {
+    text-align: center !important;
+    margin: 10px auto 0 auto !important;
+}
+
+/* Center options */
+.options-grid, .options-simple {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+/* Center option cards */
+.option-card, .option-simple {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto 15px auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    min-height: 120px !important;
+    padding: 20px !important;
+}
+
+/* Center buttons */
+.btn-primary {
+    display: block !important;
+    margin: 30px auto !important;
+    text-align: center !important;
+    width: fit-content !important;
+    max-width: 300px !important;
+    padding: 15px 30px !important;
+}
+
+/* Center form elements */
+.contact-form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+/* Center benefits */
+.benefits {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+.benefit-item {
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 500px !important;
+}
+
+/* Center agent info */
+.agent-info {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.agent-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+/* Center trust badges */
+.trust-badges {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin: 0 auto !important;
+}
+
+/* Center thank you content */
+.thank-you-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+.next-steps {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
 }
 
 .step-item {
