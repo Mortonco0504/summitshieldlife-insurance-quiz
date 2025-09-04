@@ -72,7 +72,7 @@ body::before {
     padding: 10px;
     min-height: calc(100vh - 100px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     justify-content: center;
@@ -140,7 +140,7 @@ body::before {
     max-height: none;
     overflow-y: visible;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     justify-content: center;
@@ -203,7 +203,7 @@ body::before {
     max-height: none;
     overflow-y: visible;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     justify-content: center;
@@ -382,7 +382,7 @@ body::before {
 
 .agent-contact {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     gap: 6px;
@@ -659,7 +659,7 @@ body::before {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     align-items: center;
@@ -1641,7 +1641,7 @@ body::before {
     
     /* Better agent card layout */
     .agent-card {
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
@@ -1665,7 +1665,7 @@ body::before {
     
     /* Improve trust badges */
     .trust-badges {
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
@@ -2237,6 +2237,174 @@ body::before {
     align-items: center !important;
     flex-wrap: wrap !important;
     width: 100% !important;
+}
+
+/* Center thank you content */
+.thank-you-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.next-steps {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.step-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+/* Fix centering and uniform widths for all pages */
+.page-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* Make all option cards the same width */
+.option-card, .option-simple {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto 15px auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: left !important;
+    min-height: 120px !important;
+    padding: 20px !important;
+}
+
+/* Center the options container */
+.options-grid, .options-simple {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+/* Center page headers */
+.page-header {
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+}
+
+.page-header h2 {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+.page-header .question-subtitle {
+    text-align: center !important;
+    margin: 10px auto 0 auto !important;
+}
+
+/* Center buttons */
+.btn-primary {
+    display: block !important;
+    margin: 30px auto !important;
+    text-align: center !important;
+    width: fit-content !important;
+    max-width: 300px !important;
+    padding: 15px 30px !important;
+}
+
+/* Center hero section */
+.hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Center main container */
+.main-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 20px !important;
+}
+
+/* Center quiz container */
+.quiz-container {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* Center form elements */
+.contact-form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+.form-group {
+    width: 100% !important;
+    text-align: left !important;
+}
+
+/* Center benefits */
+.benefits {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.benefit-item {
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 500px !important;
+}
+
+/* Center agent info */
+.agent-info {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.agent-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+/* Center trust badges */
+.trust-badges {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 10px !important;
 }
 
 /* Center thank you content */
