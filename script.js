@@ -14,6 +14,7 @@ let quizData = {
 };
 
 let currentPage = 1;
+let modalShown = false; // Track if modal has been shown
 const totalPages = 8;
 
 // Initialize the quiz
@@ -45,14 +46,15 @@ function setupEventListeners() {
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
     
-    // Show call modal when on page 1 (before any navigation)
-    if (currentPage === 1) {
-        console.log("Page 1 - showing modal immediately");
+    // Show call modal when on page 1 (only once)
+    if (currentPage === 1 && !modalShown) {
+        console.log("Page 1 - showing modal for first time");
+        modalShown = true;
         showCallModal();
         return; // Don't proceed with navigation yet
     }
     
-    // Normal page navigation for other pages
+    // Normal page navigation for other pages or if modal already shown
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         if (validateCurrentPage()) {
@@ -63,8 +65,7 @@ function nextPage() {
             updateProgressBar();
         }
     }
-}
-function nextPageOld3() {
+}function nextPageOld3() {
     console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -663,6 +664,7 @@ function callConnor() {
     closeCallModal();
     
     // Proceed to next page
+    proceedToNextPage();
     
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
@@ -679,6 +681,7 @@ function bookAppointment() {
     closeCallModal();
     
     // Proceed to next page
+    proceedToNextPage();
     
     // Open calendar booking (you can replace this with your actual booking system)
     // For now, we'll open a simple mailto link
@@ -699,6 +702,7 @@ function continueQuiz() {
     closeCallModal();
     
     // Proceed to next page
+    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
@@ -709,6 +713,7 @@ document.addEventListener('click', function(event) {
         closeCallModal();
     
     // Proceed to next page
+    proceedToNextPage();
     }
 });
 
@@ -718,6 +723,7 @@ document.addEventListener('keydown', function(event) {
         closeCallModal();
     
     // Proceed to next page
+    proceedToNextPage();
     }
 });
 
