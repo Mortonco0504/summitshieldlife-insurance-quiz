@@ -49,6 +49,30 @@ function nextPage() {
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
+            // Show call modal when on page 1 (before going to page 2)
+            if (currentPage === 1) {
+                console.log("Page 1 - showing modal before going to page 2");
+                setTimeout(() => {
+                    console.log("Executing showCallModal from page 1");
+                    showCallModal();
+                }, 500);
+            }
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
+
+function nextPageOld2() {
+    console.log("nextPage called, current page:", currentPage);
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             console.log("New current page:", currentPage);
