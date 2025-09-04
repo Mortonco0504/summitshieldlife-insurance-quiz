@@ -86,11 +86,10 @@ function nextPage() {
         showCallModal();
         return; // Don't proceed with navigation yet
     }
+    
     // Normal page navigation for other pages or if modal already shown
     scrollToTopMobile();
-    }
-    // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     if (currentPage < totalPages) {
         // Validate current page before proceeding
         if (validateCurrentPage()) {
@@ -102,7 +101,6 @@ function nextPage() {
         }
     }
 }
-
 function scrollToTopMobile() {
     // Detect mobile device and apply appropriate scroll behavior
     const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
