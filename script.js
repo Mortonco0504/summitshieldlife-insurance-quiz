@@ -1,7 +1,3 @@
-function testButton() {
-    alert("Button is working!");
-    nextPage();
-}
 // Quiz data storage
 let quizData = {
     ageRange: '',
@@ -61,7 +57,7 @@ function nextPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             console.log("New current page:", currentPage);
@@ -77,7 +73,7 @@ function nextPageOld3() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             // Show call modal when on page 1 (before going to page 2)
             if (currentPage === 1) {
                 console.log("Page 1 - showing modal before going to page 2");
@@ -101,7 +97,7 @@ function nextPageOld2() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             console.log("New current page:", currentPage);
@@ -125,7 +121,7 @@ function nextPageOld() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -146,7 +142,7 @@ function nextPageOriginal() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             showPage(currentPage);
@@ -346,7 +342,7 @@ function trackConversion() {
             'event_category': 'lead_generation',
             'event_label': 'life_insurance_quiz',
             'value': 1
-        });
+        // });
     }
     
     // Facebook Pixel event (replace with your pixel code)
@@ -354,7 +350,7 @@ function trackConversion() {
         fbq('track', 'Lead', {
             content_name: 'Life Insurance Quiz',
             content_category: 'Insurance'
-        });
+        // });
     }
     
     console.log('Quiz completed:', quizData);
@@ -368,14 +364,14 @@ function trackCalendarView() {
             'event_category': 'lead_generation',
             'event_label': 'embedded_calendar',
             'value': 1
-        });
+        // });
     }
     
     if (typeof fbq !== 'undefined') {
         fbq('track', 'ViewContent', {
             content_name: 'Embedded Calendar',
             content_category: 'Insurance Consultation'
-        });
+        // });
     }
 }
 
@@ -396,28 +392,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {
             formatPhoneNumber(this);
-        });
+        // });
     }
     
     // Track embedded calendar when it loads
     if (typeof Calendly !== 'undefined') {
-        Calendly.onEventScheduled(function(e) {
+        // Calendly.onEventScheduled(function(e) {
             // Track when someone books an appointment
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'appointment_booked', {
                     'event_category': 'lead_generation',
                     'event_label': 'calendly_booking',
                     'value': 1
-                });
+                // });
             }
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
                     content_name: 'Appointment Booked',
                     content_category: 'Insurance Consultation'
-                });
+                // });
             }
-        });
+        // });
     }
 });
 
@@ -482,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === modal) {
                 hidePrivacyPolicy();
             }
-        });
+        // });
     }
     
     // Close modal with Escape key
@@ -512,16 +508,16 @@ if (isTouchDevice()) {
             card.addEventListener('touchstart', function() {
                 this.style.transform = 'scale(0.98)';
                 this.style.transition = 'transform 0.1s ease';
-            });
+            // });
             
             card.addEventListener('touchend', function() {
                 this.style.transform = 'scale(1)';
-            });
+            // });
             
             card.addEventListener('touchcancel', function() {
                 this.style.transform = 'scale(1)';
-            });
-        });
+            // });
+        // });
     });
 }
 
@@ -580,7 +576,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isMobileDevice()) {
                 validateContactFormMobile();
             }
-        });
+        // });
     });
 });
 
@@ -608,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function(e) {
             // Let the onclick handler in HTML work normally
             console.log('Option card clicked:', this);
-        });
+        // });
     });
     
     // Add touch handling for buttons without preventing clicks
@@ -662,7 +658,7 @@ function callConnor() {
     // Close modal and initiate call
     closeCallModal();
     
-    // Proceed to next page
+    proceedToNextPage();
     
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
@@ -678,7 +674,7 @@ function bookAppointment() {
     // Close modal
     closeCallModal();
     
-    // Proceed to next page
+    proceedToNextPage();
     
     // Open calendar booking (you can replace this with your actual booking system)
     // For now, we'll open a simple mailto link
@@ -698,7 +694,7 @@ function continueQuiz() {
     // Close modal and continue with quiz
     closeCallModal();
     
-    // Proceed to next page
+    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
@@ -707,7 +703,7 @@ document.addEventListener('click', function(event) {
     if (event.target === modal) {
         closeCallModal();
     
-    // Proceed to next page
+    proceedToNextPage();
     }
 });
 
@@ -716,7 +712,7 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeCallModal();
     
-    // Proceed to next page
+    proceedToNextPage();
     }
 });
 
@@ -729,7 +725,7 @@ function proceedToNextPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
         // Validate current page before proceeding
-        if (validateCurrentPage()) {
+        if (currentPage === 1 || validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
             console.log("New current page:", currentPage);
