@@ -2073,3 +2073,52 @@ body::before {
     flex-direction: column !important;
     align-items: center !important;
 }
+
+/* Debug and fix agent image display issues */
+.agent-image {
+    /* Force visibility and proper display */
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    
+    /* Ensure proper sizing */
+    width: 150px !important;
+    height: 150px !important;
+    min-width: 150px !important;
+    min-height: 150px !important;
+    
+    /* Ensure proper positioning */
+    position: relative !important;
+    z-index: 10 !important;
+    
+    /* Make it more visible for debugging */
+    border: 5px solid red !important;
+    background-color: yellow !important;
+    
+    /* Ensure the image loads */
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+/* Ensure agent photo container doesn't hide the image */
+.agent-photo {
+    display: block !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Debug the agent card */
+.agent-card {
+    border: 3px solid blue !important;
+    background-color: lightblue !important;
+}
+
+/* Ensure the image file path is correct */
+.agent-image[src="IMG_0195.jpeg"] {
+    background-image: url('IMG_0195.jpeg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
