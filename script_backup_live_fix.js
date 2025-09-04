@@ -19,23 +19,15 @@ const totalPages = 8;
 
 // Initialize the quiz
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modals are hidden on page load
-    const callModal = document.getElementById('callConnorModal');
-    const calendlyModal = document.getElementById('calendlyModal');
-    
-    if (callModal) {
-        callModal.style.display = 'none';
-        callModal.classList.remove('show');
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
-    
-    if (calendlyModal) {
-        calendlyModal.style.display = 'none';
-        calendlyModal.classList.remove('show');
-    }
-    
     updateProgressBar();
     setupEventListeners();
 });
+
 // Setup event listeners
 function setupEventListeners() {
     // Form validation for contact page
@@ -329,23 +321,40 @@ function formatPhoneNumber(input) {
 
 // Add phone formatting
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modals are hidden on page load
-    const callModal = document.getElementById('callConnorModal');
-    const calendlyModal = document.getElementById('calendlyModal');
-    
-    if (callModal) {
-        callModal.style.display = 'none';
-        callModal.classList.remove('show');
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+            formatPhoneNumber(this);
+        });
     }
     
-    if (calendlyModal) {
-        calendlyModal.style.display = 'none';
-        calendlyModal.classList.remove('show');
+    // Track embedded calendar when it loads
+    if (typeof Calendly !== 'undefined') {
+        Calendly.onEventScheduled(function(e) {
+            // Track when someone books an appointment
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'appointment_booked', {
+                    'event_category': 'lead_generation',
+                    'event_label': 'calendly_booking',
+                    'value': 1
+                });
+            }
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Appointment Booked',
+                    content_category: 'Insurance Consultation'
+                });
+            }
+        });
     }
-    
-    updateProgressBar();
-    setupEventListeners();
 });
+
 // Error handling
 window.addEventListener('error', function(e) {
     console.error('Quiz error:', e.error);
@@ -446,23 +455,16 @@ if (isTouchDevice()) {
 
 // Prevent double-tap zoom on buttons
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modals are hidden on page load
-    const callModal = document.getElementById('callConnorModal');
-    const calendlyModal = document.getElementById('calendlyModal');
-    
-    if (callModal) {
-        callModal.style.display = 'none';
-        callModal.classList.remove('show');
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
-    
-    if (calendlyModal) {
-        calendlyModal.style.display = 'none';
-        calendlyModal.classList.remove('show');
-    }
-    
-    updateProgressBar();
-    setupEventListeners();
+    const buttons = document.querySelectorAll('button, .btn-primary');
+    buttons.forEach(button => {
+    });
 });
+
 // Optimize scroll performance for mobile
 let ticking = false;
 function updateScrollPosition() {
@@ -505,42 +507,71 @@ function validateContactFormMobile() {
 
 // Enhanced mobile form validation
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modals are hidden on page load
-    const callModal = document.getElementById('callConnorModal');
-    const calendlyModal = document.getElementById('calendlyModal');
-    
-    if (callModal) {
-        callModal.style.display = 'none';
-        callModal.classList.remove('show');
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
-    
-    if (calendlyModal) {
-        calendlyModal.style.display = 'none';
-        calendlyModal.classList.remove('show');
-    }
-    
-    updateProgressBar();
-    setupEventListeners();
+    const formInputs = document.querySelectorAll('#page6 input, #page6 select');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (isMobileDevice()) {
+                validateContactFormMobile();
+            }
+        });
+    });
 });
+
 // Improved mobile touch handling
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure modals are hidden on page load
-    const callModal = document.getElementById('callConnorModal');
-    const calendlyModal = document.getElementById('calendlyModal');
-    
-    if (callModal) {
-        callModal.style.display = 'none';
-        callModal.classList.remove('show');
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
+    // Add proper touch handling for option cards
+    const optionCards = document.querySelectorAll('.option-card, .option-simple');
     
-    if (calendlyModal) {
-        calendlyModal.style.display = 'none';
-        calendlyModal.classList.remove('show');
-    }
+    optionCards.forEach(card => {
+        // Add touch feedback without interfering with clicks
+        card.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        card.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        card.addEventListener('touchcancel', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        // Ensure click events work on mobile
+        card.addEventListener('click', function(e) {
+            // Let the onclick handler in HTML work normally
+            console.log('Option card clicked:', this);
+        });
+    });
     
-    updateProgressBar();
-    setupEventListeners();
+    // Add touch handling for buttons without preventing clicks
+    const buttons = document.querySelectorAll('button, .btn-primary');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        button.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        button.addEventListener('touchcancel', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+    });
 });
+
 // Debug function to check if touch events are working
 function debugTouchEvents() {
     console.log('Touch device detected:', isTouchDevice());
@@ -555,34 +586,30 @@ function showCallModal() {
     if (modal) {
         console.log("Modal found, setting display to flex");
         modal.style.display = 'flex';
-        modal.style.zIndex = '999999';
-        modal.classList.add('show');
+        modal.style.zIndex = '99999';
     } else {
         console.log("Modal not found!");
     }
 }
+
 function closeCallModal() {
     console.log("closeCallModal called");
     const modal = document.getElementById('callConnorModal');
     if (modal) {
         console.log("Modal found, setting display to none");
         modal.style.display = 'none';
-        modal.classList.remove('show');
     } else {
         console.log("Modal not found!");
     }
 }
+
 function closeCallModal() {
-    console.log("closeCallModal called");
     const modal = document.getElementById('callConnorModal');
     if (modal) {
-        console.log("Modal found, setting display to none");
         modal.style.display = 'none';
-        modal.classList.remove('show');
-    } else {
-        console.log("Modal not found!");
     }
 }
+
 function callConnor() {
     // Track the call action
     if (typeof fbq !== 'undefined') {
@@ -648,8 +675,7 @@ function showCalendlyPopup() {
     const modal = document.getElementById('calendlyModal');
     if (modal) {
         modal.style.display = 'flex';
-        modal.style.zIndex = '999999';
-        modal.classList.add('show');
+        modal.style.zIndex = '99999';
         console.log('Calendly modal shown.');
         
         // Initialize Calendly widget if available
@@ -665,14 +691,15 @@ function showCalendlyPopup() {
         window.open('https://calendly.com/connormorton-ffl/life-insurance', '_blank');
     }
 }
+
 function closeCalendlyPopup() {
     const modal = document.getElementById('calendlyModal');
     if (modal) {
         modal.style.display = 'none';
-        modal.classList.remove('show');
         console.log('Calendly modal closed.');
     }
 }
+
 // Close Calendly modal when clicking outside
 document.addEventListener('click', function(e) {
     const calendlyModal = document.getElementById('calendlyModal');
