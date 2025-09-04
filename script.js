@@ -20,9 +20,9 @@ const totalPages = 8;
 // Initialize the quiz
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
     updateProgressBar();
     setupEventListeners();
@@ -51,6 +51,13 @@ function setupEventListeners() {
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
     
+    // Show modal immediately when clicking "Get Instant Quote" on page 1 (only once)
+    if (currentPage === 1 && !modalShown) {
+        modalShown = true;
+        showCallModal();
+        return; // Don't proceed with navigation yet
+    }
+    
     // Close modal if it's open when navigating away from page 2
     if (currentPage === 2) {
         closeCallModal();
@@ -66,8 +73,6 @@ function nextPage() {
             console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
-            
-            }
         }
     }
 }
@@ -317,9 +322,9 @@ function formatPhoneNumber(input) {
 // Add phone formatting
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
@@ -397,14 +402,14 @@ function showPrivacyPolicy() {
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        modal.style.display = 'none';
+        modal.style.display = ''none'';
         document.body.style.overflow = ''; // Restore scrolling
     }
 }
 
 // Close modal when clicking outside of it
 document.addEventListener('click', function(event) {
-    const modal = document.getElementById('callConnorModal');
+    const modal = document.getElementById(''callConnorModal'');
     if (event.target === modal) {
         closeCallModal();
     }
@@ -425,9 +430,9 @@ if (isTouchDevice()) {
     // Add touch feedback for option cards
     document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
         const optionCards = document.querySelectorAll('.option-card, .option-simple');
         
@@ -451,9 +456,9 @@ if (isTouchDevice()) {
 // Prevent double-tap zoom on buttons
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
     const buttons = document.querySelectorAll('button, .btn-primary');
     buttons.forEach(button => {
@@ -503,9 +508,9 @@ function validateContactFormMobile() {
 // Enhanced mobile form validation
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
     const formInputs = document.querySelectorAll('#page6 input, #page6 select');
     formInputs.forEach(input => {
@@ -520,9 +525,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Improved mobile touch handling
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure modal is hidden on page load
-    const modal = document.getElementById(callConnorModal);
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = none;
+        modal.style.display = 'none';
     }
     // Add proper touch handling for option cards
     const optionCards = document.querySelectorAll('.option-card, .option-simple');
@@ -576,16 +581,16 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
-    const modal = document.getElementById('callConnorModal');
+    const modal = document.getElementById(''callConnorModal'');
     if (modal) {
         modal.style.display = 'flex';
     }
 }
 
 function closeCallModal() {
-    const modal = document.getElementById('callConnorModal');
+    const modal = document.getElementById(''callConnorModal'');
     if (modal) {
-        modal.style.display = 'none';
+        modal.style.display = ''none'';
     }
 }
 
