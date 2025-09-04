@@ -2001,3 +2001,34 @@ body::before {
         margin-right: 3px !important;
     }
 }
+
+/* Debug and ensure Family Protection badge is visible and positioned correctly */
+.badge {
+    /* Force visibility and positioning */
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    
+    /* Ensure it's below the logo */
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    
+    /* Make it more prominent for debugging */
+    border: 3px solid red !important;
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e) !important;
+}
+
+/* Ensure company logo section doesn't interfere */
+.company-logo-section {
+    position: relative !important;
+    z-index: 5 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Debug the hero section layout */
+.hero-section {
+    position: relative !important;
+    z-index: 1 !important;
+}
