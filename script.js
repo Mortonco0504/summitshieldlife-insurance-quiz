@@ -19,6 +19,11 @@ const totalPages = 8;
 
 // Initialize the quiz
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
     updateProgressBar();
     setupEventListeners();
 });
@@ -317,6 +322,11 @@ function formatPhoneNumber(input) {
 
 // Add phone formatting
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {
@@ -420,6 +430,11 @@ function isTouchDevice() {
 if (isTouchDevice()) {
     // Add touch feedback for option cards
     document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
         const optionCards = document.querySelectorAll('.option-card, .option-simple');
         
         optionCards.forEach(card => {
@@ -441,6 +456,11 @@ if (isTouchDevice()) {
 
 // Prevent double-tap zoom on buttons
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
     const buttons = document.querySelectorAll('button, .btn-primary');
     buttons.forEach(button => {
     });
@@ -488,6 +508,11 @@ function validateContactFormMobile() {
 
 // Enhanced mobile form validation
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
     const formInputs = document.querySelectorAll('#page6 input, #page6 select');
     formInputs.forEach(input => {
         input.addEventListener('blur', function() {
@@ -500,6 +525,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Improved mobile touch handling
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    const modal = document.getElementById(callConnorModal);
+    if (modal) {
+        modal.style.display = none;
+    }
     // Add proper touch handling for option cards
     const optionCards = document.querySelectorAll('.option-card, .option-simple');
     
