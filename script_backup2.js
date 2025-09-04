@@ -44,55 +44,6 @@ function setupEventListeners() {
 // Navigation functions
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
-    // Show call modal when on page 1 (before any navigation)
-    if (currentPage === 1) {
-        console.log("Page 1 - showing modal before going to page 2");
-        setTimeout(() => {
-            console.log("Executing showCallModal from page 1");
-            showCallModal();
-        }, 100);
-        return; // Don't proceed with navigation yet
-    }
-    // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentPage < totalPages) {
-        // Validate current page before proceeding
-        if (validateCurrentPage()) {
-            hidePage(currentPage);
-            currentPage++;
-            console.log("New current page:", currentPage);
-            showPage(currentPage);
-            updateProgressBar();
-        }
-    }
-}
-
-function nextPageOld3() {
-    console.log("nextPage called, current page:", currentPage);
-    // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentPage < totalPages) {
-        // Validate current page before proceeding
-        if (validateCurrentPage()) {
-            // Show call modal when on page 1 (before going to page 2)
-            if (currentPage === 1) {
-                console.log("Page 1 - showing modal before going to page 2");
-                setTimeout(() => {
-                    console.log("Executing showCallModal from page 1");
-                    showCallModal();
-                }, 500);
-            }
-            hidePage(currentPage);
-            currentPage++;
-            console.log("New current page:", currentPage);
-            showPage(currentPage);
-            updateProgressBar();
-        }
-    }
-}
-
-function nextPageOld2() {
-    console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -658,9 +609,6 @@ function callConnor() {
     // Close modal and initiate call
     closeCallModal();
     
-    // Proceed to next page
-    proceedToNextPage();
-    
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
     window.location.href = phoneNumber;
@@ -674,9 +622,6 @@ function bookAppointment() {
     
     // Close modal
     closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
     
     // Open calendar booking (you can replace this with your actual booking system)
     // For now, we'll open a simple mailto link
@@ -695,9 +640,6 @@ function continueQuiz() {
     
     // Close modal and continue with quiz
     closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
@@ -705,9 +647,6 @@ document.addEventListener('click', function(event) {
     const modal = document.getElementById('callConnorModal');
     if (event.target === modal) {
         closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -715,9 +654,6 @@ document.addEventListener('click', function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -734,44 +670,4 @@ function debugNextPage() {
         console.log("Should show modal now");
         showCallModal();
     }
-}
-
-// Function to proceed to next page after modal
-function proceedToNextPage() {
-    console.log("Proceeding to next page from modal");
-    // Scroll to top when navigating to next page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentPage < totalPages) {
-        // Validate current page before proceeding
-        if (validateCurrentPage()) {
-            hidePage(currentPage);
-            currentPage++;
-            console.log("New current page:", currentPage);
-            showPage(currentPage);
-            updateProgressBar();
-        }
-    }
-}
-
-// Additional debugging functions
-function testModalDirect() {
-    console.log("Testing modal directly...");
-    const modal = document.getElementById('callConnorModal');
-    console.log("Modal element:", modal);
-    if (modal) {
-        console.log("Modal found, showing...");
-        modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        modal.style.backgroundColor = 'rgba(255, 0, 0, 0.8)'; // Red background for visibility
-        document.body.style.overflow = 'hidden';
-        console.log("Modal should be visible now");
-    } else {
-        console.log("Modal element not found!");
-    }
-}
-
-// Test if nextPage is being called
-function testNextPage() {
-    console.log("Testing nextPage function...");
-    nextPage();
 }
