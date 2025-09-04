@@ -14,7 +14,6 @@ let quizData = {
 };
 
 let currentPage = 1;
-let modalShown = false; // Track if modal has been shown
 const totalPages = 8;
 
 // Initialize the quiz
@@ -44,29 +43,32 @@ function setupEventListeners() {
 
 // Navigation functions
 function nextPage() {
-    
-    
-    // Show call modal when on page 1 (only once)
-    if (currentPage === 1 && !modalShown) {
-        
-        modalShown = true;
-        showCallModal();
+    console.log("nextPage called, current page:", currentPage);
+    // Show call modal when on page 1 (before any navigation)
+    if (currentPage === 1) {
+        console.log("Page 1 - showing modal before going to page 2");
+        setTimeout(() => {
+            console.log("Executing showCallModal from page 1");
+            showCallModal();
+        }, 100);
         return; // Don't proceed with navigation yet
     }
-    
-    // Normal page navigation for other pages or if modal already shown
+    // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
+        // Validate current page before proceeding
         if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
     }
-}function nextPageOld3() {
-    
+}
+
+function nextPageOld3() {
+    console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -82,7 +84,7 @@ function nextPage() {
             }
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
@@ -90,7 +92,7 @@ function nextPage() {
 }
 
 function nextPageOld2() {
-    
+    console.log("nextPage called, current page:", currentPage);
     // Scroll to top when navigating to next page
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (currentPage < totalPages) {
@@ -98,7 +100,7 @@ function nextPageOld2() {
         if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
             
@@ -455,10 +457,8 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        
         modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        // Allow scrolling - removed overflow hidden
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
@@ -634,23 +634,18 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
-    
     const modal = document.getElementById('callConnorModal');
-    
     if (modal) {
-        
         modal.style.display = 'block';
-        modal.style.zIndex = '99999';
-        // Allow scrolling - removed overflow hidden
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 }
 
 function closeCallModal() {
     const modal = document.getElementById('callConnorModal');
-    
     if (modal) {
         modal.style.display = 'none';
-        // Scrolling already enabled
+        document.body.style.overflow = 'auto'; // Restore scrolling
     }
 }
 
@@ -664,7 +659,6 @@ function callConnor() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     
     // Create a phone link
     const phoneNumber = 'tel:+15419122048';
@@ -681,7 +675,6 @@ function bookAppointment() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     
     // Open calendar booking (you can replace this with your actual booking system)
     // For now, we'll open a simple mailto link
@@ -702,18 +695,15 @@ function continueQuiz() {
     closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
 }
 
 // Close modal when clicking outside of it
 document.addEventListener('click', function(event) {
     const modal = document.getElementById('callConnorModal');
-    
     if (event.target === modal) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -723,7 +713,6 @@ document.addEventListener('keydown', function(event) {
         closeCallModal();
     
     // Proceed to next page
-    proceedToNextPage();
     }
 });
 
@@ -739,7 +728,7 @@ function proceedToNextPage() {
         if (validateCurrentPage()) {
             hidePage(currentPage);
             currentPage++;
-            
+            console.log("New current page:", currentPage);
             showPage(currentPage);
             updateProgressBar();
         }
