@@ -42,6 +42,22 @@ function setupEventListeners() {
     });
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Navigation functions
 function nextPage() {
     console.log("nextPage called, current page:", currentPage);
@@ -66,6 +82,22 @@ function nextPage() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 
 
 function nextPageOriginal() {
@@ -82,6 +114,22 @@ function nextPageOriginal() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function previousPage() {
     // Scroll to top when navigating to previous page
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -93,6 +141,22 @@ function previousPage() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Page visibility functions
 function showPage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
@@ -101,6 +165,22 @@ function showPage(pageNumber) {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function hidePage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     if (page) {
@@ -108,6 +188,22 @@ function hidePage(pageNumber) {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Progress bar
 function updateProgressBar() {
     const progressBar = document.getElementById('progressBar');
@@ -115,6 +211,22 @@ function updateProgressBar() {
     progressBar.style.width = progress + '%';
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Option selection
 function selectOption(field, value) {
     quizData[field] = value;
@@ -149,6 +261,22 @@ function selectOption(field, value) {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Validation functions
 function validateCurrentPage() {
     switch(currentPage) {
@@ -167,6 +295,22 @@ function validateCurrentPage() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function validateContactForm() {
     const firstName = document.getElementById('firstName').value.trim();
     const lastName = document.getElementById('lastName').value.trim();
@@ -187,17 +331,65 @@ function validateContactForm() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function isValidPhone(phone) {
     // Remove all non-digit characters
     const digitsOnly = phone.replace(/\D/g, '');
     return digitsOnly.length >= 10;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Form submission
 function submitForm() {
     if (!validateContactForm()) {
@@ -265,6 +457,22 @@ function submitForm() {
     });
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Analytics and tracking
 function trackConversion() {
     // Google Analytics event (replace with your tracking code)
@@ -287,6 +495,22 @@ function trackConversion() {
     console.log('Quiz completed:', quizData);
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Track embedded calendar view
 function trackCalendarView() {
     // Track calendar view
@@ -306,6 +530,22 @@ function trackCalendarView() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Utility functions
 function formatPhoneNumber(input) {
     let value = input.value.replace(/\D/g, '');
@@ -317,6 +557,22 @@ function formatPhoneNumber(input) {
     input.value = value;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Add phone formatting
 document.addEventListener('DOMContentLoaded', function() {
     const phoneInput = document.getElementById('phone');
@@ -359,11 +615,43 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Add touch support for mobile
 if ('ontouchstart' in window) {
     document.addEventListener('touchstart', function() {}, {passive: true});
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Performance optimization
 function debounce(func, wait) {
     let timeout;
@@ -377,6 +665,22 @@ function debounce(func, wait) {
     };
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Optimize scroll performance
 const optimizedScroll = debounce(function() {
     // Handle scroll events if needed
@@ -388,11 +692,26 @@ window.addEventListener('scroll', optimizedScroll, {passive: true});
 function showPrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modal.style.display = 'flex';
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
@@ -401,34 +720,72 @@ function hidePrivacyPolicy() {
     }
 }
 
-// Close modal when clicking outside of it
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('privacyModal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                hidePrivacyPolicy();
-            }
-        });
-    }
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            hidePrivacyPolicy();
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
         }
-    });
-}); 
-
-// Mobile-specific optimizations
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
 }
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('callConnorModal');
+    if (event.target === modal) {
+        closeCallModal();
+    }
+});
 
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCallModal();
+    }
+});
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function isTouchDevice() {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Enhanced mobile touch handling
 if (isTouchDevice()) {
     // Add touch feedback for option cards
@@ -452,6 +809,22 @@ if (isTouchDevice()) {
     });
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Prevent double-tap zoom on buttons
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('button, .btn-primary');
@@ -466,6 +839,22 @@ function updateScrollPosition() {
     ticking = false;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 function requestScrollUpdate() {
     if (!ticking) {
         requestAnimationFrame(updateScrollPosition);
@@ -473,6 +862,22 @@ function requestScrollUpdate() {
     }
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 
 // Improve form validation for mobile
@@ -499,6 +904,22 @@ function validateContactFormMobile() {
     return isValid;
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Enhanced mobile form validation
 document.addEventListener('DOMContentLoaded', function() {
     const formInputs = document.querySelectorAll('#page6 input, #page6 select');
@@ -563,96 +984,29 @@ function debugTouchEvents() {
     console.log('Touch start support:', 'ontouchstart' in window);
 }
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 // Call Connor Modal Functions
 function showCallModal() {
     const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modal.style.display = 'flex';
     }
 }
-
-function closeCallModal() {
-    const modal = document.getElementById('callConnorModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-}
-
-function callConnor() {
-    // Track the call action
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Contact');
-    }
-    
-    // Close modal and initiate call
-    closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
-    
-    // Create a phone link
-    const phoneNumber = 'tel:+15419122048';
-    window.location.href = phoneNumber;
-}
-
-function bookAppointment() {
-    // Track the appointment booking action
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Schedule');
-    }
-    
-    // Close modal
-    closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
-    
-    // Open calendar booking (you can replace this with your actual booking system)
-    // For now, we'll open a simple mailto link
-    const subject = 'Life Insurance Consultation Appointment';
-    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
-    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.open(mailtoLink, '_blank');
-}
-
-function continueQuiz() {
-    // Track the continue action
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Continue');
-    }
-    
-    // Close modal and continue with quiz
-    closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
-}
-
-// Close modal when clicking outside of it
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('callConnorModal');
-    if (event.target === modal) {
-        closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeCallModal();
-    
-    // Proceed to next page
-    proceedToNextPage();
-    }
-});
-
-
 
 // Function to proceed to next page after modal
 function proceedToNextPage() {
@@ -670,10 +1024,175 @@ function proceedToNextPage() {
         }
     }
 }
+function closeCallModal() {
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
 
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
+function callConnor() {
+    // Track the call action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact');
+    }
+    
+    // Close modal and initiate call
+    closeCallModal();
+    
+    // Proceed to next page
+    
+    // Create a phone link
+    const phoneNumber = 'tel:+15419122048';
+    window.location.href = phoneNumber;
+}
+
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
+function bookAppointment() {
+    // Track the appointment booking action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule');
+    }
+    
+    // Close modal
+    closeCallModal();
+    
+    // Proceed to next page
+    
+    // Open calendar booking (you can replace this with your actual booking system)
+    // For now, we'll open a simple mailto link
+    const subject = 'Life Insurance Consultation Appointment';
+    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
+    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
+}
+
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
+function continueQuiz() {
+    // Track the continue action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Continue');
+    }
+    
+    // Close modal and continue with quiz
+    closeCallModal();
+    
+    // Proceed to next page
+    proceedToNextPage();
+}
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('callConnorModal');
+    if (event.target === modal) {
+        closeCallModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCallModal();
+    }
+});
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
+}
 
 // Test if nextPage is being called
 function testNextPage() {
     console.log("Testing nextPage function...");
     nextPage();
+}
+
+// Function to proceed to next page after modal
+function proceedToNextPage() {
+    console.log("Proceeding to next page from modal");
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            console.log("New current page:", currentPage);
+            showPage(currentPage);
+            updateProgressBar();
+        }
+    }
 }
