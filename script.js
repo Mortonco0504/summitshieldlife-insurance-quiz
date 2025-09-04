@@ -52,6 +52,27 @@ function nextPage() {
             currentPage++;
             showPage(currentPage);
             updateProgressBar();
+            
+            // Show call modal when reaching page 2
+            if (currentPage === 2) {
+                setTimeout(() => {
+                    showCallModal();
+                }, 500); // Small delay to ensure page is fully loaded
+            }
+        }
+    }
+}
+
+function nextPageOriginal() {
+    // Scroll to top when navigating to next page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentPage < totalPages) {
+        // Validate current page before proceeding
+        if (validateCurrentPage()) {
+            hidePage(currentPage);
+            currentPage++;
+            showPage(currentPage);
+            updateProgressBar();
         }
     }
 }
@@ -536,3 +557,77 @@ function debugTouchEvents() {
     console.log('Max touch points:', navigator.maxTouchPoints);
     console.log('Touch start support:', 'ontouchstart' in window);
 }
+
+// Call Connor Modal Functions
+function showCallModal() {
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeCallModal() {
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+function callConnor() {
+    // Track the call action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact');
+    }
+    
+    // Close modal and initiate call
+    closeCallModal();
+    
+    // Create a phone link
+    const phoneNumber = 'tel:+15419122048';
+    window.location.href = phoneNumber;
+}
+
+function bookAppointment() {
+    // Track the appointment booking action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule');
+    }
+    
+    // Close modal
+    closeCallModal();
+    
+    // Open calendar booking (you can replace this with your actual booking system)
+    // For now, we'll open a simple mailto link
+    const subject = 'Life Insurance Consultation Appointment';
+    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
+    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
+}
+
+function continueQuiz() {
+    // Track the continue action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Continue');
+    }
+    
+    // Close modal and continue with quiz
+    closeCallModal();
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('callConnorModal');
+    if (event.target === modal) {
+        closeCallModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCallModal();
+    }
+});

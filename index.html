@@ -638,5 +638,39 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+    <!-- Call Connor Modal -->
+    <div id="callConnorModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎉 Great News!</h3>
+                <button class="modal-close" onclick="closeCallModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="agent-availability">
+                    <div class="agent-photo">
+                        <img src="IMG_0195.jpeg" alt="Connor Morton">
+                    </div>
+                    <div class="agent-info">
+                        <h4>Connor Morton</h4>
+                        <p class="availability-text">Just became available for the next 15 minutes!</p>
+                        <p class="call-text">Would you like to speak with him directly about your life insurance needs?</p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-call" onclick="callConnor()">
+                        <i class="fas fa-phone"></i>
+                        Call Now: (541) 912-2048
+                    </button>
+                    <button class="btn-book" onclick="bookAppointment()">
+                        <i class="fas fa-calendar"></i>
+                        Book Appointment
+                    </button>
+                    <button class="btn-continue" onclick="continueQuiz()">
+                        <i class="fas fa-arrow-right"></i>
+                        Continue Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div></body>
 </html> 
