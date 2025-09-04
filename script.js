@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Track embedded calendar when it loads
     if (typeof Calendly !== 'undefined') {
-        Calendly.onEventScheduled(function(e) {
+        // Calendly.onEventScheduled(function(e) {
             // Track when someone books an appointment
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'appointment_booked', {
