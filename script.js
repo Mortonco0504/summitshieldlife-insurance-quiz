@@ -680,11 +680,9 @@ function bookAppointment() {
     // Close modal
     closeCallModal();
     
-    // Open Calendly calendar for easy booking
-    const calendlyUrl = 'https://calendly.com/connormorton-ffl/life-insurance';
-    window.open(calendlyUrl, '_blank');
-}
-function continueQuiz() {
+    // Show Calendly popup on current page
+    showCalendlyPopup();
+}function continueQuiz() {
     // Track the continue action
     if (typeof fbq !== 'undefined') {
         fbq('track', 'Continue');
@@ -743,4 +741,123 @@ function proceedToNextPage() {
 function testNextPage() {
     console.log("Testing nextPage function...");
     nextPage();
+}
+function bookAppointment() {
+    // Track the appointment booking action
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule');
+    }
+    
+    // Close modal
+    closeCallModal();
+    
+    // Show Calendly popup on current page
+    showCalendlyPopup();
+}
+
+function showCalendlyPopup() {
+    // Create Calendly popup overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'calendly-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+    `;
+    
+    // Create popup container
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+        background: white;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 900px;
+        height: 80vh;
+        max-height: 700px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    `;
+    
+    // Create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '×';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: #666;
+        cursor: pointer;
+        z-index: 10001;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    `;
+    
+    closeBtn.addEventListener('mouseenter', () => {
+        closeBtn.style.background = '#f0f0f0';
+        closeBtn.style.color = '#333';
+    });
+    
+    closeBtn.addEventListener('mouseleave', () => {
+        closeBtn.style.background = 'none';
+        closeBtn.style.color = '#666';
+    });
+    
+    closeBtn.addEventListener('click', closeCalendlyPopup);
+    
+    // Create iframe for Calendly
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://calendly.com/connormorton-ffl/life-insurance?embed=true&embed_domain=localhost&embed_type=Inline';
+    iframe.style.cssText = `
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 12px;
+    `;
+    
+    // Assemble popup
+    popup.appendChild(closeBtn);
+    popup.appendChild(iframe);
+    overlay.appendChild(popup);
+    
+    // Add to page
+    document.body.appendChild(overlay);
+    
+    // Close on overlay click
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            closeCalendlyPopup();
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCalendlyPopup();
+        }
+    });
+}
+
+function closeCalendlyPopup() {
+    const overlay = document.getElementById('calendly-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
 }
