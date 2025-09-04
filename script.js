@@ -402,14 +402,14 @@ function showPrivacyPolicy() {
 function hidePrivacyPolicy() {
     const modal = document.getElementById('privacyModal');
     if (modal) {
-        modal.style.display = ''none'';
+        modal.style.display = 'none';
         document.body.style.overflow = ''; // Restore scrolling
     }
 }
 
 // Close modal when clicking outside of it
 document.addEventListener('click', function(event) {
-    const modal = document.getElementById(''callConnorModal'');
+    const modal = document.getElementById('callConnorModal');
     if (event.target === modal) {
         closeCallModal();
     }
@@ -581,16 +581,32 @@ function debugTouchEvents() {
 
 // Call Connor Modal Functions
 function showCallModal() {
-    const modal = document.getElementById(''callConnorModal'');
+    console.log("showCallModal called");
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
+        console.log("Modal found, setting display to flex");
         modal.style.display = 'flex';
+        modal.style.zIndex = '99999';
+    } else {
+        console.log("Modal not found!");
     }
 }
 
 function closeCallModal() {
-    const modal = document.getElementById(''callConnorModal'');
+    console.log("closeCallModal called");
+    const modal = document.getElementById('callConnorModal');
     if (modal) {
-        modal.style.display = ''none'';
+        console.log("Modal found, setting display to none");
+        modal.style.display = 'none';
+    } else {
+        console.log("Modal not found!");
+    }
+}
+
+function closeCallModal() {
+    const modal = document.getElementById('callConnorModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
 }
 
