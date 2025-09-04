@@ -680,18 +680,10 @@ function bookAppointment() {
     // Close modal
     closeCallModal();
     
-    // Proceed to next page
-    proceedToNextPage();
-    
-    // Open calendar booking (you can replace this with your actual booking system)
-    // For now, we'll open a simple mailto link
-    const subject = 'Life Insurance Consultation Appointment';
-    const body = 'Hi Connor,\n\nI would like to schedule an appointment to discuss my life insurance needs.\n\nPlease let me know your available times.\n\nThank you!';
-    const mailtoLink = `mailto:Connormorton.ffl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.open(mailtoLink, '_blank');
+    // Open Calendly calendar for easy booking
+    const calendlyUrl = 'https://calendly.com/connormorton/life-insurance-consultation';
+    window.open(calendlyUrl, '_blank');
 }
-
 function continueQuiz() {
     // Track the continue action
     if (typeof fbq !== 'undefined') {
