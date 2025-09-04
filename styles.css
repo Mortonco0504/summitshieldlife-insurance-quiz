@@ -1850,3 +1850,54 @@ body::before {
         padding: 12px;
     }
 }
+
+/* Fix mobile click/touch issues */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements are properly touchable */
+    .option-card, .option-simple {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(212, 175, 55, 0.3);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Ensure buttons are touchable */
+    .btn-primary {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(212, 175, 55, 0.3);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Fix any potential z-index issues */
+    .page {
+        position: relative;
+        z-index: 10;
+    }
+    
+    .option-card, .option-simple {
+        position: relative;
+        z-index: 5;
+    }
+    
+    /* Ensure proper touch target size */
+    .option-card, .option-simple {
+        min-height: 60px;
+        min-width: 100%;
+    }
+    
+    /* Fix any potential overflow issues */
+    .page-content {
+        overflow: visible;
+    }
+    
+    .container {
+        overflow: visible;
+    }
+}

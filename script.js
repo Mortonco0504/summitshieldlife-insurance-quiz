@@ -430,9 +430,6 @@ if (isTouchDevice()) {
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('button, .btn-primary');
     buttons.forEach(button => {
-        button.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-        });
     });
 });
 
@@ -487,3 +484,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Improved mobile touch handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Add proper touch handling for option cards
+    const optionCards = document.querySelectorAll('.option-card, .option-simple');
+    
+    optionCards.forEach(card => {
+        // Add touch feedback without interfering with clicks
+        card.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        card.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        card.addEventListener('touchcancel', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        // Ensure click events work on mobile
+        card.addEventListener('click', function(e) {
+            // Let the onclick handler in HTML work normally
+            console.log('Option card clicked:', this);
+        });
+    });
+    
+    // Add touch handling for buttons without preventing clicks
+    const buttons = document.querySelectorAll('button, .btn-primary');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        button.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+        
+        button.addEventListener('touchcancel', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
+    });
+});
+
+// Debug function to check if touch events are working
+function debugTouchEvents() {
+    console.log('Touch device detected:', isTouchDevice());
+    console.log('Max touch points:', navigator.maxTouchPoints);
+    console.log('Touch start support:', 'ontouchstart' in window);
+}
