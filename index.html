@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Insurance</title>
+    <meta name="description" content="Get personalized life insurance quotes. Coverage up to $2M, no medical exam required. Whole Life, Term Life, and IUL options for families.">
+    <meta name="keywords" content="life insurance quotes, life insurance coverage, family life insurance, term life insurance, whole life insurance, life insurance rates">
+    <meta property="og:title" content="Life Insurance Quotes">
+    <meta property="og:description" content="Get personalized life insurance quotes. Coverage up to $2M, no medical exam required.">
+    <meta property="og:url" content="https://summitshieldlife.com">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://summitshieldlife.com">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '812335688121948');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=812335688121948&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->    <!-- Force HTTPS Redirect -->
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Page 1: Welcome/Hook -->
+    <div class="page active" id="page1">
+        <div class="container">
+            <div class="hero-section">
+                <div class="company-logo-section">
+                    <img src="ChatGPT Image Aug 20, 2025, 04_17_50 PM.png" alt="Summit Shield Life" class="main-logo">
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    Family Protection
+                </div>                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-award"></i>
+                        <span>BBB Accredited</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Licensed Agent</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Top Rated</span>
+                    </div>
+                </div>
+                <h1>Protect Your Family's Future</h1>
+                <p class="subtitle">Life is unpredictable. Make sure your family is protected with the right life insurance coverage.</p>
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Coverage up to $2M</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Whole Life, Term Life, Mortgage Protection and Indexed Universal Life (IUL)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>No medical exam required</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>No 2-Year Waiting Period</span>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="nextPage()">
+                    Get Instant Quote
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="disclaimer">Takes less than 2 minutes • No commitment required • <a href="#" onclick="showPrivacyPolicy()" class="privacy-link">Privacy Policy</a></p>
+                
+                <div class="agent-info">
+                    <div class="agent-card">
+                        <div class="agent-photo">
+                            <img src="IMG_0195.jpeg" alt="Connor Morton - Insurance Specialist" class="agent-image">
+                        </div>
+                        <div class="agent-details">
+                            <h4>Connor Morton</h4>
+                            <p>Insurance Specialist</p>
+                            <div class="agent-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>(541) 912-2048</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Connormorton.ffl@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-id-card"></i>
+                                    <span>NPN: 21213055</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Age Range -->
+    <div class="page" id="page2">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>What's your age range?</h2>
+                    <p class="question-subtitle">This helps us provide the most relevant coverage options for your life stage.</p>
+                </div>
+                
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption('ageRange', '18-30')">
+                        <div class="option-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>18-30</h3>
+                        <p>Young Professional</p>
+                    </div>
+                    
+                    <div class="option-card" onclick="selectOption('ageRange', '31-45')">
+                        <div class="option-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>31-45</h3>
+                        <p>Established Career</p>
+                    </div>
+                    
+                    <div class="option-card" onclick="selectOption('ageRange', '46-60')">
+                        <div class="option-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3>46-60</h3>
+                        <p>Mid-Career</p>
+                    </div>
+                    
+                    <div class="option-card" onclick="selectOption('ageRange', '60+')">
+                        <div class="option-icon">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <h3>60+</h3>
+                        <p>Retirement Planning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Family Status -->
+    <div class="page" id="page3">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>Do you have dependents who rely on your income?</h2>
+                    <p class="question-subtitle">This helps us understand your family's financial protection needs.</p>
+                </div>
+                
+                <div class="options-simple">
+                    <div class="option-simple" onclick="selectOption('dependents', 'yes')">
+                        <div class="option-content">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>Yes</h3>
+                                <p>I have a spouse, children, or other dependents</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('dependents', 'no')">
+                        <div class="option-content">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h3>No</h3>
+                                <p>I don't have dependents currently</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Income/Protection Needs -->
+    <div class="page" id="page4">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>What's your annual household income?</h2>
+                    <p class="question-subtitle">This helps us calculate the right amount of coverage for your family.</p>
+                </div>
+                
+                <div class="options-simple">
+                    <div class="option-simple" onclick="selectOption('income', 'under-50k')">
+                        <div class="option-content">
+                            <h3>Under $50,000</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('income', '50k-75k')">
+                        <div class="option-content">
+                            <h3>$50,000 - $75,000</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('income', '75k-100k')">
+                        <div class="option-content">
+                            <h3>$75,000 - $100,000</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('income', '100k-150k')">
+                        <div class="option-content">
+                            <h3>$100,000 - $150,000</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('income', 'over-150k')">
+                        <div class="option-content">
+                            <h3>Over $150,000</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5: Insurance Type Selection -->
+    <div class="page" id="page5">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>What type of life insurance are you looking for?</h2>
+                    <p class="question-subtitle">Select the coverage type that best fits your needs and goals.</p>
+                </div>
+                
+                <div class="options-simple">
+                    <div class="option-simple" onclick="showWholelifeVideo()">
+                        <div class="option-content">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h3>Term Life Insurance</h3>
+                                <p>Affordable coverage for a specific period (10, 20, or 30 years)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="showWholelifeVideo()">
+                        <div class="option-content">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h3>Whole Life Insurance</h3>
+                                <p>Lifetime coverage with cash value accumulation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="showIULVideo()">
+                        <div class="option-content">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h3>Indexed Universal Life (IUL)</h3>
+                                <p>Flexible coverage with potential for cash value growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="showWholelifeVideo()">
+                        <div class="option-content">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h3>Final Expenses</h3>
+                                <p>Coverage for funeral costs and end-of-life expenses</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('insuranceType', 'mortgage')">
+                        <div class="option-content">
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h3>Mortgage Protection</h3>
+                                <p>Coverage that pays off your mortgage if something happens to you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 6: Health Status -->
+    <div class="page" id="page6">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>How would you describe your health?</h2>
+                    <p class="question-subtitle">This helps us find the best rates available for you.</p>
+                </div>
+                
+                <div class="options-simple">
+                    <div class="option-simple" onclick="selectOption('health', 'excellent')">
+                        <div class="option-content">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h3>Excellent</h3>
+                                <p>No major health issues, non-smoker</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('health', 'good')">
+                        <div class="option-content">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h3>Good</h3>
+                                <p>Minor health conditions, well-controlled</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-simple" onclick="selectOption('health', 'fair')">
+                        <div class="option-content">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h3>Fair</h3>
+                                <p>Some health conditions, smoker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 7: Contact Capture -->
+    <div class="page" id="page7">
+        <div class="container">
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>Get Your Personalized Life Insurance Quote</h2>
+                    <p class="question-subtitle">Based on your responses, we'll provide you with customized coverage options and competitive rates tailored to your needs.</p>
+                    
+                    <div class="insurance-partners">
+                        <p class="partners-title">Trusted by Top Insurance Companies:</p>
+                        <div class="partner-logos">
+                            <img src="IMG_1579.png" alt="Insurance Company Partners" class="partners-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <form action="https://formspree.io/f/mpwlbpqj" method="POST" class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select your state</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <!-- Hidden fields for quiz data -->
+                    <input type="hidden" name="ageRange" id="ageRange">
+                    <input type="hidden" name="dependents" id="dependents">
+                    <input type="hidden" name="income" id="income">
+                    <input type="hidden" name="insuranceType" id="insuranceType">
+                    <input type="hidden" name="health" id="health">
+                
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">
+                                <strong>I AGREE</strong> to receive quotes and information about life insurance options. I understand I can opt out at any time.
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="representative" name="representative" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">
+                                <strong>I AGREE</strong> that Connor Morton will be the only licensed representative to be contacting me about my options
+                            </span>
+                        </label>
+                    </div>
+                </form>
+                
+                <button class="btn-primary" onclick="submitForm()" id="btn-submit">
+                    Get My Free Quote
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <p class="privacy-note">
+                    <i class="fas fa-lock"></i>
+                    Your information is secure and will only be used to provide you with life insurance quotes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 8: Thank You -->
+    <div class="page" id="page8">
+        <div class="container">
+            <div class="page-content">
+                <div class="thank-you-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    
+                    <h2>Thank You!</h2>
+                    <p class="thank-you-subtitle">We've received your information and are analyzing your needs.</p>
+                    
+                    <div class="next-steps">
+                        <h3>What happens next?</h3>
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Personalized Analysis</h4>
+                                <p>Our team will review your responses and calculate your coverage needs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Agent Contact</h4>
+                                <p>A licensed agent will reach out within 24 hours with your customized options</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Free Consultation</h4>
+                                <p>Get your personalized quote and discuss the best coverage for your family</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bonus-offer">
+                        <h3>Schedule Your Free Consultation</h3>
+                        <p>Book a 15-minute call to discuss your personalized life insurance options and get your custom quote</p>
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/connormorton-ffl/life-insurance" style="min-width:320px;height:700px;"></div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p><strong>Questions?</strong> Call us at 1-800-LIFE-QUOTE</p>
+                        <p>Available 24/7 for Life Insurance Quotes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="privacy-modal">
+        <div class="privacy-modal-content">
+            <div class="privacy-header">
+                <h2>Privacy Policy</h2>
+                <button class="close-privacy" onclick="hidePrivacyPolicy()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="privacy-content">
+                <p><strong>Last Updated:</strong> August 20, 2025</p>
+                
+                <h3>1. Information We Collect</h3>
+                <p>We collect information you provide directly to us, including:</p>
+                <ul>
+                    <li>Name, email address, and phone number</li>
+                    <li>Age range and family information</li>
+                    <li>Income level and insurance preferences</li>
+                    <li>Health information for insurance quotes</li>
+                </ul>
+                
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide personalized life insurance quotes</li>
+                    <li>Connect you with licensed insurance agents</li>
+                    <li>Send you relevant insurance information</li>
+                    <li>Improve our services and user experience</li>
+                </ul>
+                
+                <h3>3. Information Sharing</h3>
+                <p>We may share your information with:</p>
+                <ul>
+                    <li>Licensed insurance agents and brokers</li>
+                    <li>Insurance companies for quote generation</li>
+                    <li>Service providers who assist in our operations</li>
+                    <li>Legal authorities when required by law</li>
+                </ul>
+                
+                <h3>4. Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                
+                <h3>5. Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access and update your personal information</li>
+                    <li>Opt out of marketing communications</li>
+                    <li>Request deletion of your data</li>
+                    <li>File a complaint with relevant authorities</li>
+                </ul>
+                
+                <h3>6. Cookies and Tracking</h3>
+                <p>We use cookies and similar technologies to improve your experience and analyze site usage. You can control cookie settings through your browser.</p>
+                
+                <h3>7. Third-Party Services</h3>
+                <p>Our site may contain links to third-party services. We are not responsible for the privacy practices of these external sites.</p>
+                
+                <h3>8. Children's Privacy</h3>
+                <p>Our services are not intended for children under 18. We do not knowingly collect personal information from children under 18.</p>
+                
+                <h3>9. Changes to This Policy</h3>
+                <p>We may update this privacy policy from time to time. We will notify you of any material changes by posting the new policy on this page.</p>
+                
+                <h3>10. Contact Us</h3>
+                <p>If you have questions about this privacy policy, please contact us at:</p>
+                <p><strong>Email:</strong> Connormorton.ffl@gmail.com<br>
+                <strong>Phone:</strong> (541) 912-2048</p>
+            </div>
+            
+            <div class="privacy-footer">
+                <button class="btn-secondary" onclick="hidePrivacyPolicy()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Professional Call Connor Modal -->
+    <div id="callConnorModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <div class="availability-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Available Now</span>
+                    </div>
+                    <h3>Speak with Your Personal Life Insurance Specialist</h3>
+                </div>
+                <button class="modal-close" onclick="closeCallModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="agent-profile">
+                    <div class="agent-photo">
+                        <img src="IMG_0195.jpeg" alt="Connor Morton - Licensed Life Insurance Agent">
+                        <div class="verified-badge">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="agent-details">
+                        <h4>Connor Morton</h4>
+                        <p class="agent-title">Licensed Life Insurance Specialist</p>
+                        <div class="agent-credentials">
+                            <span class="credential">
+                                <i class="fas fa-shield-alt"></i>
+                                Licensed Agent
+                            </span>
+                            <span class="credential">
+                                <i class="fas fa-star"></i>
+                                5-Star Rated
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="availability-message">
+                    <p class="main-message">Connor is available for the next 15 minutes to discuss your life insurance needs.</p>
+                    <p class="sub-message">Get personalized quotes and expert guidance tailored to your situation.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary-action" onclick="callConnor()">
+                        <i class="fas fa-phone"></i>
+                        <div class="btn-content">
+                            <span class="btn-title">Call Connor Now</span>
+                            <span class="btn-subtitle">(541) 912-2048</span>
+                        </div>
+                    </button>
+                    <button class="btn-secondary-action" onclick="bookAppointment()">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="btn-content">
+                            <span class="btn-title">Schedule Appointment</span>
+                            <span class="btn-subtitle">Choose your preferred time</span>
+                        </div>
+                    </button>
+                    <button class="btn-tertiary-action" onclick="continueQuiz()">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Continue with Quiz</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Calendly Popup Modal -->
+    <div id="calendlyModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content calendly-modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <h3>Schedule Your Appointment with Connor</h3>
+                </div>
+                <button class="modal-close" onclick="closeCalendlyPopup()">&times;</button>
+            </div>
+            <div class="modal-body calendly-modal-body">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/connormorton-ffl/life-insurance" style="min-width:320px;height:630px;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- IUL Video Modal -->
+    <div id="iulVideoModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content video-modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <h3>Indexed Universal Life (IUL) Explained</h3>
+                </div>
+                <button class="modal-close" onclick="closeIULVideo()">&times;</button>
+            </div>
+            <div class="modal-body video-modal-body">
+                <div class="video-container">
+                    <video id="iulVideo" controls width="100%" height="auto">
+                        <source src="IUL.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-actions">
+                    <button class="btn-primary" onclick="selectIULAndContinue()">
+                        <i class="fas fa-check"></i>
+                        I'm Interested in IUL
+                    </button>
+                    <button class="btn-secondary" onclick="closeIULVideo()">
+                        <i class="fas fa-times"></i>
+                        Close Video
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Wholelife Video Modal -->
+    <div id="wholelifeVideoModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content video-modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <h3>Term Life, Whole Life & Final Expenses Explained</h3>
+                </div>
+                <button class="modal-close" onclick="closeWholelifeVideo()">&times;</button>
+            </div>
+            <div class="modal-body video-modal-body">
+                <div class="video-container">
+                    <video id="wholelifeVideo" controls width="100%" height="auto">
+                        <source src="Wholelife.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-actions">
+                    <button class="btn-primary" onclick="selectWholelifeAndContinue()">
+                        <i class="fas fa-check"></i>
+                        I'm Interested in This Coverage
+                    </button>
+                    <button class="btn-secondary" onclick="closeWholelifeVideo()">
+                        <i class="fas fa-times"></i>
+                        Close Video
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div></body></html> 

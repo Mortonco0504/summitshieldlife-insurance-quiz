@@ -1,0 +1,15 @@
+    /* Center agent photo in modal on mobile */
+    .agent-profile {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+    }
+    
+    .agent-details {
+        text-align: center !important;
+    }
+    
+    .agent-credentials {
+        justify-content: center !important;
+    }
